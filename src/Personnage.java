@@ -1,57 +1,91 @@
-import java.sql.Array;
-import java.util.*;
+import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.List;
-
 public class Personnage {
-    String type = "guerrier";
-    String name = "natha";
+
+    private String type;
+    private String name;
+    private int forceDAttaque;
+    private int niveauDeVie;
+    private ArrayList<String> equipeOffensif = new ArrayList<String>();
+    private ArrayList<String> equipeDefensif = new ArrayList<String>();
+
+    EquipementOffensif offensif = new EquipementOffensif();
+
+    public void setPersonnage() {
 
 
-    public static void main(String[] args) {
 
-       setpersonnage(type,name);
+        this.name = "maximo";
+        this.type = "magicien";
+        this.forceDAttaque = 15;
+        this.niveauDeVie = 6;
+        this.equipeOffensif = offensif.getEquipementOffensif(getType());
+
 
     }
-    private void personnage (String type, String name,int niveauDeVie, int forceDAttaque, String equipeOffensif, String equipeDefensif ) {
 
-        this.type = type;
+    public void setPersonnage(String name){
+
         this.name = name;
-        this.niveauDeVie = 0;
-        this.forceDAttaque =0;
-        this.equipeOffensif = "";
-        this.equipeDefensif = "";
+        this.type = "guerrier";
+        this.forceDAttaque = 10;
+        this.niveauDeVie = 10;
+        this.equipeOffensif = offensif.getEquipementOffensif(getType());
+
+    }
+    public void setPersonnage(String name, String type){
+
+        this.name = name;
+        this.type = type;
+
+        switch (type) {
+
+            case "guerrier":
+
+                this.forceDAttaque = 10;
+                this.niveauDeVie = 10;
+                EquipementOffensif offensif = new EquipementOffensif();
+                this.equipeOffensif = offensif.getEquipementOffensif(getType());
+                break;
+
+            case "magicien":
+
+                this.forceDAttaque = 6;
+                this.niveauDeVie = 15;
+                break;
+
+        }
 
     }
 
-     public static void setpersonnage (String type, String name){
+    public String getName(){
 
-         personnage newplayer = new personnage(type,name);
+        return this.name;
+    }
 
-         if(newplayer.type == "guerrier"){
+    public String getType(){
 
-             newplayer.type = "guerrier";
-             newplayer.name = name;
-             newplayer.forceDAttaque = 10;
-             newplayer.forceDAttaque = 10;
-             newplayer.equipeOffensif = "arme";
-             newplayer.equipeDefensif = "bouclier";
+        return this.type;
 
-         }
-         if(newplayer.type == "magicien"){
-
-             newplayer.type = "magicien";
-             newplayer.name = name;
-             newplayer.forceDAttaque = 6;
-             newplayer.forceDAttaque = 15;
-             newplayer.equipeOffensif = "philtre";
-             newplayer.equipeDefensif = "sort";
-
-         }
-
-         System.out.print("Nom :"+newplayer.name+"Type :"+newplayer.type);
-     }
+    }
 
 
+    public void displayPlayer(){
+        System.out.print("------------------------------\n"+"Nom : "+ this.name+ "\n"+ "Type : "+this.type + "\n"+ "Force d'attaque : "+this.forceDAttaque + "\n"+ "Niveau de Vie : "+this.niveauDeVie+"\n"+"Equipement Offensif"+this.equipeOffensif);
+    }
+
+    /*public void setPlayer(){
+
+        if(name.isEmpty() && type.isEmpty()) {
+
+            this.setPersonnageDefault();
+        }
+
+        if(!name.isEmpty() && !type.isEmpty()){
+
+            this.setPersonnageAvecNomType(name,type);
+        }
+
+    }*/
 
 }
