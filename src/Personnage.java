@@ -10,17 +10,18 @@ public class Personnage {
     private ArrayList<String> equipeDefensif = new ArrayList<String>();
 
     EquipementOffensif offensif = new EquipementOffensif();
+    EquipementDefensif defensif = new EquipementDefensif();
 
     public void setPersonnage() {
-
-
 
         this.name = "maximo";
         this.type = "magicien";
         this.forceDAttaque = 15;
         this.niveauDeVie = 6;
-        this.equipeOffensif = offensif.getEquipementOffensif(getType());
-
+        offensif.setEquipementOffensif(this.type);
+        this.equipeOffensif = offensif.getEquipementOffensif();
+        defensif.setEquipementDensif(this.type);
+        this.equipeDefensif = defensif.getEquipementDensif();
 
     }
 
@@ -30,7 +31,10 @@ public class Personnage {
         this.type = "guerrier";
         this.forceDAttaque = 10;
         this.niveauDeVie = 10;
-        this.equipeOffensif = offensif.getEquipementOffensif(getType());
+        offensif.setEquipementOffensif(this.type);
+        this.equipeOffensif = offensif.getEquipementOffensif();
+        defensif.setEquipementDensif(this.type);
+        this.equipeDefensif = defensif.getEquipementDensif();
 
     }
     public void setPersonnage(String name, String type){
@@ -44,48 +48,45 @@ public class Personnage {
 
                 this.forceDAttaque = 10;
                 this.niveauDeVie = 10;
-                EquipementOffensif offensif = new EquipementOffensif();
-                this.equipeOffensif = offensif.getEquipementOffensif(getType());
+                offensif.setEquipementOffensif(this.type);
+                this.equipeOffensif = offensif.getEquipementOffensif();
+                defensif.setEquipementDensif(this.type);
+                this.equipeDefensif = defensif.getEquipementDensif();
                 break;
 
             case "magicien":
 
                 this.forceDAttaque = 6;
                 this.niveauDeVie = 15;
+                offensif.setEquipementOffensif(this.type);
+                this.equipeOffensif = offensif.getEquipementOffensif();
+                defensif.setEquipementDensif(this.type);
+                this.equipeDefensif = defensif.getEquipementDensif();
                 break;
 
         }
 
     }
 
-    public String getName(){
-
-        return this.name;
-    }
-
-    public String getType(){
-
-        return this.type;
-
-    }
-
-
     public void displayPlayer(){
-        System.out.print("------------------------------\n"+"Nom : "+ this.name+ "\n"+ "Type : "+this.type + "\n"+ "Force d'attaque : "+this.forceDAttaque + "\n"+ "Niveau de Vie : "+this.niveauDeVie+"\n"+"Equipement Offensif"+this.equipeOffensif);
+        System.out.print("------------------------------\n"+"Nom : "+ this.name+ "\n"+ "Type : "+this.type + "\n"+ "Force d'attaque : "+this.forceDAttaque + "\n"+ "Niveau de Vie : "+this.niveauDeVie+"\n"+"Equipement Offensif"+this.equipeOffensif +"\n"+"Equipement Defensif"+this.equipeDefensif);
     }
 
-    /*public void setPlayer(){
+    public void setPlayer(String name, String type){
 
         if(name.isEmpty() && type.isEmpty()) {
 
-            this.setPersonnageDefault();
+            this.setPersonnage();
         }
 
         if(!name.isEmpty() && !type.isEmpty()){
 
-            this.setPersonnageAvecNomType(name,type);
+            this.setPersonnage(name,type);
+        }
+        if(!name.isEmpty() && type.isEmpty()) {
+            this.setPersonnage(name);
         }
 
-    }*/
+    }
 
 }

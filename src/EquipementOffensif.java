@@ -3,22 +3,12 @@ import java.util.ArrayList;
 
 public class EquipementOffensif {
 
-    String offensif = "";
-    int niveauAttaque = 0;
-    String nomAttaque = "";
+    private String offensif = "";
+    private int niveauAttaque = 0;
+    private String nomAttaque = "";
+    private ArrayList<String> listOffesif = new ArrayList<String>();
 
-    private void equipementOffensif(){
-
-        this.offensif = offensif;
-        this.niveauAttaque = niveauAttaque;
-        this.nomAttaque = nomAttaque;
-
-    }
-
-    public ArrayList<String> getEquipementOffensif(String type){
-
-        ArrayList<String> listOffesif = new ArrayList<String>();
-
+    public void setEquipementOffensif(String type){
 
         switch (type) {
 
@@ -44,10 +34,9 @@ public class EquipementOffensif {
 
         }
 
-        return listOffesif;
     }
 
-
-
-
+    public ArrayList<String> getEquipementOffensif(){
+        return this.listOffesif;
+    }
 }
