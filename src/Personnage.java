@@ -11,6 +11,19 @@ public class Personnage {
     EquipementOffensif offensif = new EquipementOffensif();
     EquipementDefensif defensif = new EquipementDefensif();
 
+    //the construct
+    public Personnage(String type, String name, int forceDAttaque, int niveauDeVie, ArrayList<String> equipeOffensif, ArrayList<String> equipeDefensif, EquipementOffensif offensif, EquipementDefensif defensif) {
+
+        this.type = type;
+        this.name = name;
+        this.forceDAttaque = forceDAttaque;
+        this.niveauDeVie = niveauDeVie;
+        this.equipeOffensif = equipeOffensif;
+        this.equipeDefensif = equipeDefensif;
+        this.offensif = offensif;
+        this.defensif = defensif;
+    }
+
     public void setPersonnage() {
 
         this.name = "maximo";
