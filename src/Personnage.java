@@ -1,4 +1,4 @@
-import java.util.Scanner;
+//import java.util.Scanner;
 import java.util.ArrayList;
 public class Personnage {
 
@@ -8,7 +8,6 @@ public class Personnage {
     private int niveauDeVie;
     private ArrayList<String> equipeOffensif = new ArrayList<String>();
     private ArrayList<String> equipeDefensif = new ArrayList<String>();
-
     EquipementOffensif offensif = new EquipementOffensif();
     EquipementDefensif defensif = new EquipementDefensif();
 
@@ -86,6 +85,17 @@ public class Personnage {
         if(!name.isEmpty() && type.isEmpty()) {
             this.setPersonnage(name);
         }
+
+    }
+
+    public void modifieNomPersonnage(String name ){
+
+        this.name = name;
+    }
+
+    public void modifieTypePersonnage(String type){
+
+        this.type = type;
 
     }
 
