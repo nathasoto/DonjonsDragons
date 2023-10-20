@@ -1,3 +1,5 @@
+package Game;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,18 +16,18 @@ public void starGame(){
 
     while (this.playerPosition < 64) {
 
-        setLanzeDe();
-        displayde();
-        setPosition();
-        diplayPosition();
+
+
+            setLanzeDe();
+            displayde();
+            setPosition();
+            diplayPosition();
+
+
 
     }
 }
 
-/*public int getde(){
-
-    return this.de;
-}*/
 public int getPosition(){
 
     return this.playerPosition;
