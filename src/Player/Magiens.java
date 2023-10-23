@@ -2,22 +2,18 @@ package Player;
 
 import Defensive.Philtre;
 import Offensive.Sort;
-import Player.Personnage;
+
 
 public class  Magiens extends Personnage {
 
-    Sort newSort = new Sort();
-    Philtre newPhiltre = new Philtre();
     public Magiens(String name) {
 
         this.name = name;
         this.type ="Magicien";
         this.niveauDeVie = 6 ;
         this.forceDAttaque = 15 ;
-        this.equipeOffensif = newSort.getnomAttaque();
-        this.niveauAttaque = newSort.getniveauAttaque();
-        this.equipeDefensif = newPhiltre.getnomDefense();
-        this.niveauDefense=  newPhiltre.getniveauDefense();
+        this.newOffesif = new Sort();
+        this.newDefensif = new Philtre();
 
     }
 
@@ -28,11 +24,22 @@ public class  Magiens extends Personnage {
                 " name= " + name +'\n'+
                 " niveauDeVie= " + niveauDeVie +'\n'+
                 " forceDAttaque= " + forceDAttaque+'\n'+
-                " equipeOffensif= " + equipeOffensif+'\n'+
-                " niveauAttaque= " + niveauAttaque+'\n'+
-                " equipeDefensif= " + equipeDefensif+'\n'+
-                " niveauDefense= " + niveauDefense
+                " Offensif= " + newOffesif.getnomAttaque() + '\n' +
+                " OffensifNiveau= " + newOffesif.getniveauAttaque() + '\n' +
+                " Defensif= " + newDefensif.getnomDefense() + '\n' +
+                " DefensifNiveau= " + newDefensif.getniveauDefense()
+
                 ;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name =name;
+    }
+
+    @Override
+    public String getName() {
+       return this.name;
     }
 
     @Override

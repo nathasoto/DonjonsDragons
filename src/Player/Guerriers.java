@@ -6,34 +6,44 @@ import java.util.ArrayList;
 
 public class Guerriers extends Personnage {
 
-    Arme newArme = new Arme();
-    Bouclier newBoucle = new Bouclier();
     public Guerriers(String name) {
 
         this.name = name;
         this.type = "Guerrier";
-        this.niveauDeVie =10;
+        this.niveauDeVie = 10;
         this.forceDAttaque = 10;
-        this.equipeOffensif = newArme.getnomAttaque();
-        this.niveauAttaque = newArme.getniveauAttaque();
-        this.equipeDefensif =newBoucle.getnomDefense();
-        this.niveauDefense= newBoucle.getniveauDefense();
+        this.newOffesif = new Arme();
+        this.newDefensif = new Bouclier();
 
     }
+
     @Override
     public String toString() {
 
-        return  " ---Guerrier---" +'\n'+
-                " name= " + name +'\n'+
-                " niveauDeVie= " + niveauDeVie +'\n'+
-                " forceDAttaque= " + forceDAttaque+'\n'+
-                " equipeOffensif= " + equipeOffensif+'\n'+
-                " niveauAttaque= " + niveauAttaque+'\n'+
-                " equipeDefensif= " + equipeDefensif+'\n'+
-                " niveauDefense= " + niveauDefense
+        return " ---Guerrier---" + '\n' +
+                " name= " + name + '\n' +
+                " niveauDeVie= " + niveauDeVie + '\n' +
+                " forceDAttaque= " + forceDAttaque + '\n' +
+                " Offensif= " + newOffesif.getnomAttaque() + '\n' +
+                " OffensifNiveau= " + newOffesif.getniveauAttaque() + '\n' +
+                " Defensif= " + newDefensif.getnomDefense() + '\n' +
+                " DefensifNiveau= " + newDefensif.getniveauDefense()
                 ;
     }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
     public String getType() {
         return this.type;
     }
 }
+

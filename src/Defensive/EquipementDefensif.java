@@ -1,11 +1,11 @@
 package Defensive;
 
-abstract public class EquipementDefensif {
+ public abstract class EquipementDefensif {
 
     protected int niveauDefense;
     protected String nomDefense ;
 
-    abstract public int getniveauDefense();
-    abstract public  String getnomDefense();
+    public abstract  int getniveauDefense();
+    public abstract String getnomDefense();
 
 }

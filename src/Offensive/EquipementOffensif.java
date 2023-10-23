@@ -1,10 +1,10 @@
 package Offensive;
 
-abstract public class EquipementOffensif {
+public abstract  class EquipementOffensif {
     protected int niveauAttaque;
     protected String nomAttaque ;
 
-    abstract public int getniveauAttaque();
-    abstract public  String getnomAttaque();
+    public abstract int getniveauAttaque();
+    public abstract String getnomAttaque();
 
 }

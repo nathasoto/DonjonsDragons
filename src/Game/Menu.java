@@ -2,14 +2,17 @@ package Game;
 
 import Player.Guerriers;
 import Player.Magiens;
+import Player.Personnage;
+
 import java.util.Scanner;
 
 public class Menu {
 
-    Scanner clavier = new Scanner(System.in);
-    public void menu(){
+    private boolean arret = false;
+    protected Personnage newPlayer;
 
-        boolean arret = false;
+    Scanner clavier = new Scanner(System.in);
+    public void afficherMenuAccueil(){
 
         while (!arret){
 
@@ -19,38 +22,25 @@ public class Menu {
 
             switch(menu)
             {
-                case 1 :{
+                case 1 :
+                    System.out.println("-----------------------------");
+                    setPlayerMenu();
+                    System.out.println("-----------------------------");
+                    break;
 
-                    int choix = playerMenu();
-                    switch(choix){
-                        case 1 :
-
-                            System.out.println("-----------------------------");
-                            setPlayerMenu();
-                            System.out.println("-----------------------------");
-
-                        break;
-                        case 2 :System.out.println("-----------------------------");
-                                setPlayerMenu();
-                                System.out.println("-----------------------------");
-
-                        break;
-                        case 9 : arret = true; break;
-                        default : System.out.println("entrez un choix entre 1 ou 2"); break;
-                    }
-                } break;
                 case 2:
+                    System.out.println("-----------------------------");
+                    modifierInfoPerso();
+                    System.out.println("-----------------------------");
+                    break;
 
-                    Game newGame =new Game();
-                    newGame.starGame();
-
-                    if(newGame.getPosition() >=64){
-                        break;
-                    }
-
+                case 3:
+                    System.out.println("-----------------------------");
+                    menuStartGame();
+                    System.out.println("-----------------------------");
+                    break;
                 case 9 :
-                    arret = true;
-                    System.out.println("see you later");
+                    quitter();
                     break;
 
                 default : System.out.println("entrez un choix entre 1-2-3 ou 9"); break;
@@ -65,39 +55,28 @@ public class Menu {
        switch (type){
 
            case "guerrier":
-               Guerriers newGuerrier = new Guerriers(name);
-               System.out.println(newGuerrier.toString());
+               newPlayer = new Guerriers(name);
+               System.out.println(newPlayer.toString());
                break;
            case "magicien":
-               Magiens newMagicien = new Magiens(name);
-               System.out.println(newMagicien.toString());
+               newPlayer = new Magiens(name);
+               System.out.println(newPlayer.toString());
                break;
 
        }
    }
-   public int firstMenu (){
-
+   public int firstMenu(){
 
        System.out.println("--DONJONS  &  DRAGONS--");
        System.out.println("-----------------------------");
-       System.out.println("1.player");
-       System.out.println("2. play ");
+       System.out.println("1. Set player");
+       System.out.println("2. Modify Player");
+       System.out.println("3. Start Game");
        System.out.println("9. quitter");
        int choix = clavier.nextInt();
        return choix;
    }
-   public int playerMenu(){
 
-       System.out.println("---PLAYER---");
-       System.out.println("-----------------------------");
-
-       System.out.println("1. set player ");
-       System.out.println("2. modifie player");
-       System.out.println("9. quitter ");
-       int choix = clavier.nextInt();
-       return choix;
-
-   }
    public void setPlayerMenu(){
 
        System.out.println("---SET PLAYER---");
@@ -112,7 +91,48 @@ public class Menu {
 
        setPlayer(name,type);
 
+   }
+   public void quitter(){
 
+       arret = true;
+       System.out.println("GAME OVER");
+   }
+
+   public void modifierInfoPerso(){
+
+       System.out.println("---MODIFY PLAYER---");
+       System.out.println("-----------------------------");
+       System.out.println("---CURRENT PLAYER---");
+       System.out.println(newPlayer.getName());
+       System.out.println(newPlayer.getType());
+
+       clavier.nextLine();
+       System.out.print("Do you want change the name? y/n");
+       boolean choixModifyName = clavier.nextBoolean();
+
+       if(choixModifyName){
+           clavier.nextLine();
+           System.out.print("New name : ");
+           String name = clavier.nextLine();
+           newPlayer.setName(name);
+       }
+
+       System.out.print("Do you want change the type? y/n");
+       boolean choixModifytype = clavier.nextBoolean();
+
+       if(choixModifytype){
+           clavier.nextLine();
+           System.out.print("New type : ");
+           String type = clavier.nextLine();
+           setPlayer(newPlayer.getName(),type);
+       }
+
+   }
+   public void menuStartGame(){
+       System.out.println("---START---");
+       System.out.println("-----------------------------");
+       Game newGame = new Game();
+       newGame.starGame();
    }
 
 }

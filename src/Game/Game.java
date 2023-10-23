@@ -1,31 +1,31 @@
 package Game;
 
 import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Game {
-
 private int playerPosition = 1;
 
 private int de = 0;
 private ArrayList<String> plateau = new ArrayList<String>();
 
 public void starGame(){
+    setarray();
 
-    diplayPosition();
+  try {
+      while ( playerPosition < 65) {
 
-    while (this.playerPosition < 64) {
+          diplayPosition();
+          setLanzeDe();
+          displayde();
+          setPosition();
+          this.plateau.set(playerPosition, "player");
 
+      }
+  } catch (Exception e){
 
-
-            setLanzeDe();
-            displayde();
-            setPosition();
-            diplayPosition();
-
-
+      System.out.println("error");
 
     }
+
 }
 
 public int getPosition(){
@@ -41,6 +41,7 @@ public void setPosition (){
 
     this.playerPosition = this.playerPosition + this.de;
 
+
 }
 public void diplayPosition(){
     System.out.println("case n/ : "+this.playerPosition);
@@ -48,5 +49,12 @@ public void diplayPosition(){
 public void displayde(){
     System.out.println("dé : "+this.de);
 }
+public void setarray(){
+    for (int i=0; i <64; i++){
+        this.plateau.add(i,Integer.toString(i+1));
+    }
+}
+
+
 
 }
