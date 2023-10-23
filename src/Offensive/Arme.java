@@ -1,6 +1,7 @@
 package Offensive;
+import Game.Case;
 
-public class Arme extends EquipementOffensif{
+public class Arme extends EquipementOffensif implements Case {
     public Arme() {
 
         nomAttaque = "Arme_Ataque";

@@ -5,7 +5,7 @@ public class Game {
 private int playerPosition = 1;
 
 private int de = 0;
-private ArrayList<String> plateau = new ArrayList<String>();
+private ArrayList<Case> plateau = new ArrayList<Case>();
 
 public void starGame(){
     setarray();
@@ -17,7 +17,7 @@ public void starGame(){
           setLanzeDe();
           displayde();
           setPosition();
-          this.plateau.set(playerPosition, "player");
+          //this.plateau.set(playerPosition);
 
       }
   } catch (Exception e){
@@ -51,7 +51,7 @@ public void displayde(){
 }
 public void setarray(){
     for (int i=0; i <64; i++){
-        this.plateau.add(i,Integer.toString(i+1));
+        //this.plateau.add(i,Integer.toString(i+1));
     }
 }
 

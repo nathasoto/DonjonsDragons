@@ -19,7 +19,6 @@ public abstract class Personnage { // Abstract classes cannot be instantiated (n
     public abstract  String toString();
     public abstract void setName(String name);
     public abstract String getName();
-
     public abstract String getType();
 
 

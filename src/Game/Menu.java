@@ -107,7 +107,7 @@ public class Menu {
        System.out.println(newPlayer.getType());
 
        clavier.nextLine();
-       System.out.print("Do you want change the name? y/n");
+       System.out.print("Do you want change the name? : ");
        boolean choixModifyName = clavier.nextBoolean();
 
        if(choixModifyName){
@@ -117,7 +117,7 @@ public class Menu {
            newPlayer.setName(name);
        }
 
-       System.out.print("Do you want change the type? y/n");
+       System.out.print("Do you want change the type? : ");
        boolean choixModifytype = clavier.nextBoolean();
 
        if(choixModifytype){
