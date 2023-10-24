@@ -1,7 +1,7 @@
-package Player;
+package Players;
 
 import Defensive.Philtre;
-import Offensive.Sort;
+import Offensive.Sort.Sort;
 
 
 public class  Magiens extends Personnage {
@@ -34,16 +34,16 @@ public class  Magiens extends Personnage {
 
     @Override
     public void setName(String name) {
-        this.name =name;
+        super.setName(name);
     }
 
     @Override
     public String getName() {
-       return this.name;
+        return super.getName();
     }
 
     @Override
     public String getType() {
-        return this.type;
+        return super.getType();
     }
 }

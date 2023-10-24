@@ -1,8 +1,7 @@
-package Player;
+package Players;
 
 import Defensive.Bouclier;
-import Offensive.Arme;
-import java.util.ArrayList;
+import Offensive.Arme.Arme;
 
 public class Guerriers extends Personnage {
 
@@ -33,17 +32,17 @@ public class Guerriers extends Personnage {
 
     @Override
     public void setName(String name) {
-        this.name = name;
+        super.setName(name);
     }
 
     @Override
     public String getName() {
-        return this.name;
+        return super.getName();
     }
 
     @Override
     public String getType() {
-        return this.type;
+        return super.getType();
     }
 }
 

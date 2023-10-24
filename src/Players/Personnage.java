@@ -1,10 +1,9 @@
-package Player;
+package Players;
 import Defensive.EquipementDefensif;
+import Game.Case;
 import Offensive.EquipementOffensif;
 
-import java.util.ArrayList;
-
-public abstract class Personnage { // Abstract classes cannot be instantiated (not constructor)
+public abstract class Personnage  { // Abstract classes cannot be instantiated (not constructor)
     protected String name;
     protected String type;
     protected int niveauDeVie;
@@ -17,9 +16,16 @@ public abstract class Personnage { // Abstract classes cannot be instantiated (n
 
     //Abstract methods cannot have a body
     public abstract  String toString();
-    public abstract void setName(String name);
-    public abstract String getName();
-    public abstract String getType();
+    public  void setName(String name){
+
+        this.name = name;
+    };
+    public  String getName() {
+        return this.name;
+    };
+    public  String getType(){
+        return this.type;
+    };
 
 
 

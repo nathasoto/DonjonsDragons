@@ -1,8 +1,8 @@
 package Game;
 
-import Player.Guerriers;
-import Player.Magiens;
-import Player.Personnage;
+import Players.Guerriers;
+import Players.Magiens;
+import Players.Personnage;
 
 import java.util.Scanner;
 
