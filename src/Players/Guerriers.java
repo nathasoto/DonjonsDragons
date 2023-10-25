@@ -1,17 +1,16 @@
 package Players;
 
 import Defensive.Bouclier;
-import Offensive.Arme.Arme;
+import Offensive.Arme.*;
 
 public class Guerriers extends Personnage {
 
     public Guerriers(String name) {
 
         this.name = name;
-        this.type = "Guerrier";
         this.niveauDeVie = 10;
         this.forceDAttaque = 10;
-        this.newOffesif = new Arme();
+        this.newOffesif = new Epee();
         this.newDefensif = new Bouclier();
 
     }
@@ -30,19 +29,8 @@ public class Guerriers extends Personnage {
                 ;
     }
 
-    @Override
-    public void setName(String name) {
-        super.setName(name);
-    }
 
-    @Override
-    public String getName() {
-        return super.getName();
-    }
 
-    @Override
-    public String getType() {
-        return super.getType();
-    }
+
 }
 

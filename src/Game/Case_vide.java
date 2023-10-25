@@ -2,7 +2,7 @@ package Game;
 
 import Players.Personnage;
 
-public class Case_vide implements Case{
+public class Case_vide implements ICase {
 
     private String case_vide;
     public Case_vide() {

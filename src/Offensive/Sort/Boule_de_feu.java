@@ -1,5 +1,6 @@
 package Offensive.Sort;
 
+import Players.Magiens;
 import Players.Personnage;
 
 public class Boule_de_feu extends Sort {
@@ -10,6 +11,8 @@ public class Boule_de_feu extends Sort {
 
     @Override
     public void interaction(Personnage player) {
-        super.interaction(player);
+
+     player.setForceDAttaque(getniveauAttaque()+this.niveauAttaque);
+
     }
 }

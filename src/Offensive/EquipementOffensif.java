@@ -1,9 +1,8 @@
 package Offensive;
 
-import Game.Case;
-import Players.Personnage;
+import Game.ICase;
 
-public abstract  class EquipementOffensif  implements Case{
+public abstract  class EquipementOffensif  implements ICase {
     protected int niveauAttaque;
     protected String nomAttaque ;
 

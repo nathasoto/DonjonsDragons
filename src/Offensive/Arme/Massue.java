@@ -10,6 +10,6 @@ public class Massue extends Arme {
 
     @Override
     public void interaction(Personnage player) {
-        super.interaction(player);
+        player.setForceDAttaque(getniveauAttaque()+this.niveauAttaque);
     }
 }

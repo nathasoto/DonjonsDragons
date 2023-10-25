@@ -20,5 +20,7 @@ public  class Potion_Standard extends Potion {
     @Override
     public void interaction(Personnage player) {
 
+        player.setNiveauDeVie(player.getNiveauDeVie() +this.pointdeVie);
+
     }
 }

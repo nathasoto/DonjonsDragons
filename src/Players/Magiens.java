@@ -1,7 +1,7 @@
 package Players;
 
 import Defensive.Philtre;
-import Offensive.Sort.Sort;
+import Offensive.Sort.*;
 
 
 public class  Magiens extends Personnage {
@@ -9,10 +9,9 @@ public class  Magiens extends Personnage {
     public Magiens(String name) {
 
         this.name = name;
-        this.type ="Magicien";
-        this.niveauDeVie = 6 ;
         this.forceDAttaque = 15 ;
-        this.newOffesif = new Sort();
+        this.niveauDeVie = 6 ;
+        this.newOffesif = new Eclair();
         this.newDefensif = new Philtre();
 
     }
@@ -32,18 +31,6 @@ public class  Magiens extends Personnage {
                 ;
     }
 
-    @Override
-    public void setName(String name) {
-        super.setName(name);
-    }
 
-    @Override
-    public String getName() {
-        return super.getName();
-    }
 
-    @Override
-    public String getType() {
-        return super.getType();
-    }
 }

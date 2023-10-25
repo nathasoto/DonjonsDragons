@@ -1,8 +1,7 @@
 package Potions;
-import Game.Case;
-import Players.Personnage;
+import Game.ICase;
 
-public abstract class Potion implements Case {
+public abstract class Potion implements ICase {
 
     protected int pointdeVie;
 

@@ -18,5 +18,7 @@ public  class GrandePotion extends Potion{
     @Override
     public void interaction(Personnage player) {
 
+        player.setNiveauDeVie(player.getNiveauDeVie() +this.pointdeVie);
+
     }
 }

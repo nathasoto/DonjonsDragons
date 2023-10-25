@@ -1,8 +1,7 @@
 package Ennemis;
-import Game.Case;
-import Players.Personnage;
+import Game.ICase;
 
-public abstract class Ennemi implements Case {
+public abstract class Ennemi implements ICase {
 
     protected String nameEnnemi;
     protected int niveauAttaque;

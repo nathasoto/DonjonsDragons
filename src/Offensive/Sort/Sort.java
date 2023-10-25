@@ -1,6 +1,5 @@
 package Offensive.Sort;
 
-import Game.Case;
 import Offensive.EquipementOffensif;
 import Players.Personnage;
 
@@ -20,7 +19,6 @@ public class Sort extends EquipementOffensif {
     public String getnomAttaque() {
         return this.nomAttaque;
     }
-
     @Override
     public void interaction(Personnage player) {
 

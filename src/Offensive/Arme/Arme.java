@@ -1,5 +1,4 @@
 package Offensive.Arme;
-import Game.Case;
 import Offensive.EquipementOffensif;
 import Players.Guerriers;
 import Players.Personnage;
@@ -26,7 +25,6 @@ public class Arme extends EquipementOffensif {
     @Override
     public void interaction(Personnage player) {
 
-        System.out.println(player instanceof Guerriers);
 
     }
 }

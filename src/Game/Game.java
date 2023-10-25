@@ -2,86 +2,76 @@ package Game;
 
 import Ennemis.*;
 import Offensive.Arme.Arme;
-import Offensive.Arme.Massue;
+import Players.Guerriers;
+import Players.Magiens;
 import Players.Personnage;
 import Potions.Potion;
-import Potions.Potion_Standard;
-
 
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 public class Game {
-private int playerPosition = 1;
 
-private int de = 0;
-private ArrayList<Case> plateau ;
-
+private int die = 0;
+private Personnage player;
+private ArrayList<ICase> plateau = new ArrayList<ICase>();
 private Ennemi caseEnnemi;
-
 private Arme caseArme;
-
 private Potion casePotion;
-
 private Case_vide case_vide;
 
-public void starGame(){
+public void setPlayer(String name,String type) {
 
+    switch (type) {
 
-    setarray();
-
- try {
-      while ( playerPosition < 65) {
-
-          diplayPosition();
-          setLanzeDe();
-          displayde();
-          setPosition();
-          //this.plateau.set(playerPosition);
-
-     }
-  } catch (Exception e){
-
-      System.out.println("error");
+        case "guerrier":
+            player = new Guerriers(name);
+            System.out.println(player.toString());
+            break;
+        case "magicien":
+            player = new Magiens(name);
+            System.out.println(player.toString());
+            break;
 
     }
-
 }
 
-public int getPosition(){
+public void throwTheDie(){
 
-    return this.playerPosition;
+    this.die = (int)(Math.random()*6+1);
 }
-public void setLanzeDe(){
 
-    this.de = (int)(Math.random()*6+1);
-
-}
-public void setPosition (){
-
-    this.playerPosition = this.playerPosition + this.de;
-
-
-}
-public void diplayPosition(){
-    System.out.println("case n/ : "+this.playerPosition);
-}
-public void displayde(){
-    System.out.println("dé : "+this.de);
-}
-public void setarray(){
-    for (int i=0; i <64; i++){
-        //this.plateau.add(i,Integer.toString(i+1));
-    }
-}
 
 public void jouer_un_tour(){
 
+    throwTheDie();
+    System.out.println("dé : "+this.die);
+
+    player.setPlayerPosition(player.getPlayerPosition()+this.die);
+    System.out.println("player position : "+ player.getPlayerPosition());
+
+    int position = player.getPlayerPosition() -1;
+
+    if(!(plateau.get(position) instanceof Case_vide )){ //diferente case vide
+
+        System.out.println("Case : "+ plateau.get(player.getPlayerPosition()));
+
+    }
+    System.out.println("Case vide Continue ....: ");
+
+}
+
+public void modifierNamePerso(String name) {
+
+    player.setName(name);
+}
+
+public void currentPlayer(){
+
+   System.out.println(player.toString());
 }
 public void instancierPlateau(){
 
-    plateau = new ArrayList<Case>();
 
     for (int i =0; i < 64 ; i++){
 
@@ -89,7 +79,7 @@ public void instancierPlateau(){
 
     }
 
-    plateau.add(45,caseEnnemi = new Dragon());
+    plateau.set(45,caseEnnemi = new Dragon());
     plateau.add(52,caseEnnemi = new Dragon());
     plateau.add(56,caseEnnemi = new Dragon());
     plateau.add(62,caseEnnemi = new Dragon());
@@ -118,8 +108,7 @@ public void instancierPlateau(){
 
 
 
-
-    for(Case plato:plateau){
+    for(ICase plato:plateau){
         System.out.println(plato);
     }
 

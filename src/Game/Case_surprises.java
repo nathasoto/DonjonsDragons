@@ -2,12 +2,11 @@ package Game;
 
 import Players.Personnage;
 
-public class Case_surprises implements Case{
+public class Case_surprises implements ICase {
 
     private String case_surprises;
     public Case_surprises() {
         case_surprises = "surprise";
-
     }
 
     @Override

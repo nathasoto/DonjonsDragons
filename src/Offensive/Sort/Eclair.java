@@ -11,6 +11,8 @@ public class Eclair extends Sort{
 
     @Override
     public void interaction(Personnage player) {
-        super.interaction(player);
+
+        player.setForceDAttaque(getniveauAttaque()+this.niveauAttaque);
+
     }
 }

@@ -9,20 +9,19 @@ import java.util.Scanner;
 public class Menu {
 
     private boolean arret = false;
-    protected Personnage newPlayer;
-
     Scanner clavier = new Scanner(System.in);
-    public void afficherMenuAccueil(){
+    Game newGame = new Game();
 
-        while (!arret){
+    public void afficherMenuAccueil() {
+
+        while (!arret) {
 
             System.out.println("-----------------------------");
             int menu = firstMenu();
             System.out.println("-----------------------------");
 
-            switch(menu)
-            {
-                case 1 :
+            switch (menu) {
+                case 1:
                     System.out.println("-----------------------------");
                     setPlayerMenu();
                     System.out.println("-----------------------------");
@@ -30,7 +29,7 @@ public class Menu {
 
                 case 2:
                     System.out.println("-----------------------------");
-                    modifierInfoPerso();
+                    ModifiePlayerMenu();
                     System.out.println("-----------------------------");
                     break;
 
@@ -39,100 +38,88 @@ public class Menu {
                     menuStartGame();
                     System.out.println("-----------------------------");
                     break;
-                case 9 :
+                case 9:
                     quitter();
                     break;
 
-                default : System.out.println("entrez un choix entre 1-2-3 ou 9"); break;
+                default:
+                    System.out.println("entrez un choix entre 1-2-3 ou 9");
+                    break;
             }
         }
 
+    }
+
+    public int firstMenu() {
+
+        System.out.println("--DONJONS  &  DRAGONS--");
+        System.out.println("-----------------------------");
+        System.out.println("1. Set player");
+        System.out.println("2. Modify Player");
+        System.out.println("3. Start Game");
+        System.out.println("9. quitter");
+        int choix = clavier.nextInt();
+        return choix;
+    }
+
+    public void setPlayerMenu() {
+
+        System.out.println("---SET PLAYER---");
+        System.out.println("-----------------------------");
+
+        clavier.nextLine();
+        System.out.print("Name : ");
+        String name = clavier.nextLine();
+
+        System.out.print("Type de personnage guerrier ou magicien : ");
+        String type = clavier.nextLine();
+
+        newGame.setPlayer(name, type);
 
     }
 
-   public void setPlayer(String name,String type){
+    public void ModifiePlayerMenu() {
 
-       switch (type){
+        String name = "maximo";
 
-           case "guerrier":
-               newPlayer = new Guerriers(name);
-               System.out.println(newPlayer.toString());
-               break;
-           case "magicien":
-               newPlayer = new Magiens(name);
-               System.out.println(newPlayer.toString());
-               break;
+        System.out.println("---MODIFY PLAYER---");
+        System.out.println("-----------------------------");
+        System.out.println("---CURRENT PLAYER---");
+        newGame.currentPlayer();
+        clavier.nextLine();
+        System.out.print("Do you want change the name? : ");
+        boolean choixModifyName = clavier.nextBoolean();
 
-       }
-   }
-   public int firstMenu(){
+        if (choixModifyName) {
+            clavier.nextLine();
+            System.out.print("New name : ");
+            name = clavier.nextLine();
+            newGame.modifierNamePerso(name);
+        }
 
-       System.out.println("--DONJONS  &  DRAGONS--");
-       System.out.println("-----------------------------");
-       System.out.println("1. Set player");
-       System.out.println("2. Modify Player");
-       System.out.println("3. Start Game");
-       System.out.println("9. quitter");
-       int choix = clavier.nextInt();
-       return choix;
-   }
+        System.out.print("Do you want change the type? : ");
+        boolean choixModifytype = clavier.nextBoolean();
 
-   public void setPlayerMenu(){
+        if (choixModifytype) {
+            clavier.nextLine();
+            System.out.print("New type : ");
+            String type = clavier.nextLine();
+            newGame.setPlayer(name, type);
 
-       System.out.println("---SET PLAYER---");
-       System.out.println("-----------------------------");
+        }
+        newGame.currentPlayer();
+    }
 
-       clavier.nextLine();
-       System.out.print("Name : ");
-       String name = clavier.nextLine();
+    public void quitter() {
+        arret = true;
+        System.out.println("GAME OVER");
+    }
 
-       System.out.print("Type de personnage guerrier ou magicien : ");
-       String type = clavier.nextLine();
-
-       setPlayer(name,type);
-
-   }
-   public void quitter(){
-
-       arret = true;
-       System.out.println("GAME OVER");
-   }
-
-   public void modifierInfoPerso(){
-
-       System.out.println("---MODIFY PLAYER---");
-       System.out.println("-----------------------------");
-       System.out.println("---CURRENT PLAYER---");
-       System.out.println(newPlayer.getName());
-       System.out.println(newPlayer.getType());
-
-       clavier.nextLine();
-       System.out.print("Do you want change the name? : ");
-       boolean choixModifyName = clavier.nextBoolean();
-
-       if(choixModifyName){
-           clavier.nextLine();
-           System.out.print("New name : ");
-           String name = clavier.nextLine();
-           newPlayer.setName(name);
-       }
-
-       System.out.print("Do you want change the type? : ");
-       boolean choixModifytype = clavier.nextBoolean();
-
-       if(choixModifytype){
-           clavier.nextLine();
-           System.out.print("New type : ");
-           String type = clavier.nextLine();
-           setPlayer(newPlayer.getName(),type);
-       }
-
-   }
-   public void menuStartGame(){
-       System.out.println("---START---");
-       System.out.println("-----------------------------");
-       Game newGame = new Game();
-       newGame.starGame();
-   }
+    public void menuStartGame() {
+        System.out.println("---START---");
+        System.out.println("-----------------------------");
+        newGame.instancierPlateau();
+        newGame.jouer_un_tour();
+    }
 
 }

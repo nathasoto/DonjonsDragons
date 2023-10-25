@@ -7,9 +7,8 @@ public class Epee extends Arme {
         nomAttaque = "EPEE";
         niveauAttaque = 5;
     }
-
     @Override
     public void interaction(Personnage player) {
-        super.interaction(player);
+        player.setForceDAttaque(getniveauAttaque()+this.niveauAttaque);
     }
 }
