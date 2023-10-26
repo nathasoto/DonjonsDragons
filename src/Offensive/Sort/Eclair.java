@@ -4,15 +4,9 @@ import Players.Personnage;
 
 public class Eclair extends Sort{
     public Eclair() {
-        nomAttaque = "ECLAIR";
+        nomAttaque = "Eclair";
         niveauAttaque= 2;
     }
 
 
-    @Override
-    public void interaction(Personnage player) {
-
-        player.setForceDAttaque(getniveauAttaque()+this.niveauAttaque);
-
-    }
 }

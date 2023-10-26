@@ -5,7 +5,7 @@ import Players.Personnage;
 public class Sorcier extends Ennemi{
 
     public Sorcier() {
-        nameEnnemi = "SORCIER";
+        nameEnnemi = "Sorcier";
         niveauAttaque = 2;
         vieEnnemi = 9;
     }
@@ -33,6 +33,6 @@ public class Sorcier extends Ennemi{
     @Override
     public void interaction(Personnage player) {
 
-
+        System.out.println(nameEnnemi);
     }
 }

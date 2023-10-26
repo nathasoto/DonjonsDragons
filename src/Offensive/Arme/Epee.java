@@ -4,11 +4,9 @@ import Players.Personnage;
 
 public class Epee extends Arme {
     public Epee() {
-        nomAttaque = "EPEE";
+
+        nomAttaque = "Epée";
         niveauAttaque = 5;
     }
-    @Override
-    public void interaction(Personnage player) {
-        player.setForceDAttaque(getniveauAttaque()+this.niveauAttaque);
-    }
+
 }

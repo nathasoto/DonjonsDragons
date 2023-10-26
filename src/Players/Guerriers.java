@@ -10,8 +10,8 @@ public class Guerriers extends Personnage {
         this.name = name;
         this.niveauDeVie = 10;
         this.forceDAttaque = 10;
-        this.newOffesif = new Epee();
-        this.newDefensif = new Bouclier();
+        this.offensif = new Epee();
+        this.defensif = new Bouclier();
 
     }
 
@@ -22,10 +22,10 @@ public class Guerriers extends Personnage {
                 " name= " + name + '\n' +
                 " niveauDeVie= " + niveauDeVie + '\n' +
                 " forceDAttaque= " + forceDAttaque + '\n' +
-                " Offensif= " + newOffesif.getnomAttaque() + '\n' +
-                " OffensifNiveau= " + newOffesif.getniveauAttaque() + '\n' +
-                " Defensif= " + newDefensif.getnomDefense() + '\n' +
-                " DefensifNiveau= " + newDefensif.getniveauDefense()
+                " Offensif= " + offensif.getnomAttaque() + '\n' +
+                " OffensifNiveau= " + offensif.getniveauAttaque() + '\n' +
+                " Defensif= " + defensif.getnomDefense() + '\n' +
+                " DefensifNiveau= " + defensif.getniveauDefense()
                 ;
     }
 

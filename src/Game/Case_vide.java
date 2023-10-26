@@ -16,6 +16,6 @@ public class Case_vide implements ICase {
     }
     @Override
     public void interaction(Personnage player) {
-
+        System.out.println("Tour suivant.....");
     }
 }

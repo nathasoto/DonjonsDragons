@@ -4,12 +4,9 @@ import Players.Personnage;
 
 public class Massue extends Arme {
     public Massue() {
-        nomAttaque = "MASSUE";
+        nomAttaque = "Massue";
         niveauAttaque = 3;
     }
 
-    @Override
-    public void interaction(Personnage player) {
-        player.setForceDAttaque(getniveauAttaque()+this.niveauAttaque);
-    }
+
 }

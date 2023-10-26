@@ -11,8 +11,8 @@ public class  Magiens extends Personnage {
         this.name = name;
         this.forceDAttaque = 15 ;
         this.niveauDeVie = 6 ;
-        this.newOffesif = new Eclair();
-        this.newDefensif = new Philtre();
+        this.offensif = new Eclair();
+        this.defensif = new Philtre();
 
     }
 
@@ -23,10 +23,10 @@ public class  Magiens extends Personnage {
                 " name= " + name +'\n'+
                 " niveauDeVie= " + niveauDeVie +'\n'+
                 " forceDAttaque= " + forceDAttaque+'\n'+
-                " Offensif= " + newOffesif.getnomAttaque() + '\n' +
-                " OffensifNiveau= " + newOffesif.getniveauAttaque() + '\n' +
-                " Defensif= " + newDefensif.getnomDefense() + '\n' +
-                " DefensifNiveau= " + newDefensif.getniveauDefense()
+                " Offensif= " + offensif.getnomAttaque() + '\n' +
+                " OffensifNiveau= " + offensif.getniveauAttaque() + '\n' +
+                " Defensif= " + defensif.getnomDefense() + '\n' +
+                " DefensifNiveau= " + defensif.getniveauDefense()
 
                 ;
     }

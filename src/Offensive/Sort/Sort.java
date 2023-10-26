@@ -5,7 +5,7 @@ import Players.Personnage;
 
 public class Sort extends EquipementOffensif {
     public Sort() {
-
+        TypeOffensive = "Sort";
     }
     @Override
     public String toString() {
@@ -19,8 +19,5 @@ public class Sort extends EquipementOffensif {
     public String getnomAttaque() {
         return this.nomAttaque;
     }
-    @Override
-    public void interaction(Personnage player) {
 
-    }
 }

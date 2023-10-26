@@ -1,8 +1,10 @@
 package Offensive;
 
 import Game.ICase;
+import Players.Personnage;
 
 public abstract  class EquipementOffensif  implements ICase {
+    protected String TypeOffensive;
     protected int niveauAttaque;
     protected String nomAttaque ;
 
@@ -12,5 +14,12 @@ public abstract  class EquipementOffensif  implements ICase {
     public abstract int getniveauAttaque();
     public abstract String getnomAttaque();
 
+    @Override
+    public void interaction(Personnage player) {
 
+        System.out.println(nomAttaque);
+
+        player.setForceDAttaque(getniveauAttaque() + this.niveauAttaque);
+
+    }
 }

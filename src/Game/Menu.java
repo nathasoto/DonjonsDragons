@@ -35,6 +35,12 @@ public class Menu {
 
                 case 3:
                     System.out.println("-----------------------------");
+                    instancierPlateau();
+                    System.out.println("-----------------------------");
+                    break;
+
+                case 4:
+                    System.out.println("-----------------------------");
                     menuStartGame();
                     System.out.println("-----------------------------");
                     break;
@@ -56,7 +62,8 @@ public class Menu {
         System.out.println("-----------------------------");
         System.out.println("1. Set player");
         System.out.println("2. Modify Player");
-        System.out.println("3. Start Game");
+        System.out.println("3. Instancier Plateau");
+        System.out.println("4. Start Game");
         System.out.println("9. quitter");
         int choix = clavier.nextInt();
         return choix;
@@ -118,8 +125,15 @@ public class Menu {
     public void menuStartGame() {
         System.out.println("---START---");
         System.out.println("-----------------------------");
-        newGame.instancierPlateau();
         newGame.jouer_un_tour();
     }
+
+    public void instancierPlateau() {
+
+        newGame.instancierPlateau();
+        newGame.displayPlateau();
+
+    }
+
 
 }

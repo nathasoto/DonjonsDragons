@@ -32,6 +32,6 @@ public class Dragon extends Ennemi {
 
     @Override
     public void interaction(Personnage player) {
-
+        System.out.println(nameEnnemi);
     }
 }

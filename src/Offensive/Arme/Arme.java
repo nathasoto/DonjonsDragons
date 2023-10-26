@@ -6,7 +6,7 @@ import Players.Personnage;
 public class Arme extends EquipementOffensif {
 
     public Arme() {
-
+        TypeOffensive = "Arme";
     }
     @Override
     public String toString() {
@@ -22,9 +22,5 @@ public class Arme extends EquipementOffensif {
         return this.nomAttaque;
     }
 
-    @Override
-    public void interaction(Personnage player) {
 
-
-    }
 }

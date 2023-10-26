@@ -6,8 +6,8 @@ public abstract class Personnage  { // Abstract classes cannot be instantiated (
     protected String name;
     protected int forceDAttaque;
     protected int niveauDeVie;
-    protected EquipementOffensif newOffesif ;
-    protected EquipementDefensif newDefensif;
+    protected EquipementOffensif offensif;
+    protected EquipementDefensif defensif;
     protected int vie_max;
     protected int attaque_max;
     private int playerPosition=1;
@@ -37,5 +37,12 @@ public abstract class Personnage  { // Abstract classes cannot be instantiated (
     }
     public void setPlayerPosition(int playerPosition) {
         this.playerPosition = playerPosition;
+    }
+
+    public EquipementOffensif getOffensif() {
+        return offensif;
+    }
+    public void setOffensif(EquipementOffensif offensif) {
+        this.offensif = offensif;
     }
 }

@@ -1,9 +1,8 @@
 package Potions;
 
-import Players.Personnage;
-
 public  class GrandePotion extends Potion{
     public GrandePotion() {
+        PotionName = "Grande potion de vie";
         pointdeVie = 5;
     }
     @Override
@@ -15,10 +14,5 @@ public  class GrandePotion extends Potion{
         return super.toString();
     }
 
-    @Override
-    public void interaction(Personnage player) {
 
-        player.setNiveauDeVie(player.getNiveauDeVie() +this.pointdeVie);
-
-    }
 }

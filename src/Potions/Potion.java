@@ -1,8 +1,10 @@
 package Potions;
 import Game.ICase;
+import Players.Personnage;
 
 public abstract class Potion implements ICase {
 
+    protected String PotionName;
     protected int pointdeVie;
 
     public abstract int getPoindevie();
@@ -12,5 +14,11 @@ public abstract class Potion implements ICase {
         return  "Potion : rend "+Integer.toString(this.pointdeVie)+" points de vie";
     }
 
+    @Override
+    public void interaction(Personnage player) {
 
+        player.setNiveauDeVie(player.getNiveauDeVie() +this.pointdeVie);
+        System.out.println(this.PotionName);
+
+    }
 }
