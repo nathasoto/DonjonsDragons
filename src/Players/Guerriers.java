@@ -2,6 +2,7 @@ package Players;
 
 import Defensive.Bouclier;
 import Offensive.Arme.*;
+import java.lang.String;
 
 public class Guerriers extends Personnage {
 
@@ -28,8 +29,6 @@ public class Guerriers extends Personnage {
                 " DefensifNiveau= " + defensif.getniveauDefense()
                 ;
     }
-
-
 
 
 }

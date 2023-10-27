@@ -32,5 +32,4 @@ public class  Magiens extends Personnage {
     }
 
 
-
 }

@@ -1,6 +1,7 @@
 package Offensive;
 
 import Game.ICase;
+import Players.Magiens;
 import Players.Personnage;
 
 public abstract  class EquipementOffensif  implements ICase {
@@ -17,9 +18,7 @@ public abstract  class EquipementOffensif  implements ICase {
     @Override
     public void interaction(Personnage player) {
 
-        System.out.println(nomAttaque);
 
-        player.setForceDAttaque(getniveauAttaque() + this.niveauAttaque);
 
     }
 }

@@ -11,6 +11,7 @@ public class Boule_de_feu extends Sort {
 
     @Override
     public void interaction(Personnage player) {
+
         System.out.println(nomAttaque);
         player.setForceDAttaque(getniveauAttaque() + this.niveauAttaque);
 

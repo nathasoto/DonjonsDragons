@@ -45,4 +45,6 @@ public abstract class Personnage  { // Abstract classes cannot be instantiated (
     public void setOffensif(EquipementOffensif offensif) {
         this.offensif = offensif;
     }
+
+
 }

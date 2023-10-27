@@ -1,6 +1,8 @@
 package Offensive.Sort;
 
 import Offensive.EquipementOffensif;
+import Players.Guerriers;
+import Players.Magiens;
 import Players.Personnage;
 
 public class Sort extends EquipementOffensif {
@@ -19,5 +21,6 @@ public class Sort extends EquipementOffensif {
     public String getnomAttaque() {
         return this.nomAttaque;
     }
+
 
 }

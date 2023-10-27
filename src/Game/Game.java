@@ -29,7 +29,8 @@ public class Game {
     private Case_vide case_vide;
     private Arme caseArme;
     private Sort caseSort;
-    private ICase icase ;
+
+
 
 
     public void setPlayer(String name, String type) {
@@ -64,6 +65,8 @@ public class Game {
 
 
             plateau.get(player.getPlayerPosition()).interaction(player);
+
+
 
         } catch (Exception e ){
             System.out.println("------------ 'instance Plateau'--------------------");
@@ -101,21 +104,17 @@ public class Game {
         }
         for (int i = 14; i < 24; i++) {
 
-            plateau.set(notRepeatRandom.get(i), caseEnnemi = new Sorcier());
-        }
-        for (int i = 24; i < 28; i++) {
-
             plateau.set(notRepeatRandom.get(i), caseEnnemi = new Gobelin());
         }
-        for (int i = 28; i < 31; i++) {
+        for (int i = 24; i < 29; i++) {
 
             plateau.set(notRepeatRandom.get(i), caseArme = new Massue());
         }
-        for (int i = 31; i < 36; i++) {
+        for (int i = 29; i < 33; i++) {
 
             plateau.set(notRepeatRandom.get(i), caseArme = new Epee());
         }
-        for (int i = 36; i < 38; i++) {
+        for (int i = 33; i < 38; i++) {
 
             plateau.set(notRepeatRandom.get(i), caseSort = new Eclair());
         }

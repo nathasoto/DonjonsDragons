@@ -30,8 +30,5 @@ public class Gobelin extends Ennemi{
         return super.getVieEnnemi();
     }
 
-    @Override
-    public void interaction(Personnage player) {
-        System.out.println(nameEnnemi);
-    }
+
 }

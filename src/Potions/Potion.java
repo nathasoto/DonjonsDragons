@@ -19,6 +19,7 @@ public abstract class Potion implements ICase {
 
         player.setNiveauDeVie(player.getNiveauDeVie() +this.pointdeVie);
         System.out.println(this.PotionName);
+        System.out.println("New Vie Level : "+player.getNiveauDeVie());
 
     }
 }

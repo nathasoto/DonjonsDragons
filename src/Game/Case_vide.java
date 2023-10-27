@@ -18,4 +18,6 @@ public class Case_vide implements ICase {
     public void interaction(Personnage player) {
         System.out.println("Tour suivant.....");
     }
+
+
 }
