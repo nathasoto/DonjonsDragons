@@ -13,9 +13,7 @@ import Players.Personnage;
 import Potions.GrandePotion;
 import Potions.Potion;
 import Potions.Potion_Standard;
-
-
-import java.util.ArrayList;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
@@ -24,6 +22,8 @@ public class Game {
     private Personnage player;
     private ArrayList<ICase> plateau = new ArrayList<ICase>();
     ArrayList<Integer> notRepeatRandom;
+
+
     private Ennemi caseEnnemi;
     private Potion casePotion;
     private Case_vide case_vide;
@@ -68,6 +68,8 @@ public class Game {
 
 
 
+
+
         } catch (Exception e ){
             System.out.println("------------ 'instance Plateau'--------------------");
         }
@@ -91,6 +93,7 @@ public class Game {
 
             plateau.add(i, case_vide = new Case_vide());
         }
+
 
         notRepeatRandom = randomNotRepeat();
 
@@ -130,6 +133,26 @@ public class Game {
 
             plateau.set(notRepeatRandom.get(i), casePotion = new GrandePotion());
         }
+
+    }
+    public void instancierPlateau1(){
+
+        List<ICase> plateau2 = new ArrayList<ICase>();
+        ICase test = new Dragon();
+        Collections.fill(plateau2,case_vide);
+
+        List<Dragon> plateau3 = new ArrayList<Dragon>();
+
+        ICase arr[] = new ICase[64];
+
+        //ICase arr[] = {new Massue(), new Dragon(), new Case_vide()};
+
+        Arrays.fill(arr,0,1,case_vide);
+
+        //Arrays.fill(plateau,0,4,);
+        //private ArrayList<ICase> plateau = new ArrayList<ICase>();
+
+
 
     }
 

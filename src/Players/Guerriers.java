@@ -9,9 +9,10 @@ public class Guerriers extends Personnage {
     public Guerriers(String name) {
 
         this.name = name;
+        this.type = "Guerrier";
         this.niveauDeVie = 10;
         this.forceDAttaque = 10;
-        this.offensif = new Epee();
+        this.offensif = new Massue();
         this.defensif = new Bouclier();
 
     }

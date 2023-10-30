@@ -9,6 +9,7 @@ public class  Magiens extends Personnage {
     public Magiens(String name) {
 
         this.name = name;
+        this.type= "Magicien";
         this.forceDAttaque = 15 ;
         this.niveauDeVie = 6 ;
         this.offensif = new Eclair();

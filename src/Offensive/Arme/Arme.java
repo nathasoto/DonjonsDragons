@@ -1,12 +1,13 @@
 package Offensive.Arme;
 import Offensive.EquipementOffensif;
 import Players.Guerriers;
+import Players.Magiens;
 import Players.Personnage;
 
-public class Arme extends EquipementOffensif {
+public abstract class Arme extends EquipementOffensif {
 
     public Arme() {
-        TypeOffensive = "Arme";
+        typeOffensive = "Arme";
     }
     @Override
     public String toString() {

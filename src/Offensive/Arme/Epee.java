@@ -14,11 +14,19 @@ public class Epee extends Arme {
     @Override
     public void interaction(Personnage player) {
 
-        System.out.println(nomAttaque);
-        if((player instanceof Guerriers) && (player.getOffensif().getniveauAttaque() < this.niveauAttaque )){
+        if (player.getOffensif().getTypeOffensive() == "Arme") {
+            if (player.getOffensif().getniveauAttaque() < this.niveauAttaque) {
 
-            player.setForceDAttaque(getniveauAttaque() + this.niveauAttaque);
-            System.out.println(player.getOffensif().getniveauAttaque());
+                player.setOffensif(new Epee());
+                System.out.println(toString());
+            }
+            else{
+                System.out.println("you have : "+player.getOffensif().getnomAttaque()+"  this case : "+this.nomAttaque);
+            }
+
+        }
+        else{
+            super.interaction(player);
         }
     }
 }

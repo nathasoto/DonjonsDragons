@@ -12,10 +12,22 @@ public class Eclair extends Sort{
 
     @Override
     public void interaction(Personnage player) {
-        System.out.println(nomAttaque);
-        if(player instanceof Magiens){
 
-            player.setForceDAttaque(getniveauAttaque() + this.niveauAttaque);
+
+        if (player.getOffensif().getTypeOffensive() == "Sort") {
+
+            if (player.getOffensif().getniveauAttaque() < this.niveauAttaque) {
+
+                player.setOffensif(new Eclair());
+                System.out.println(toString());
+            }
+            else{
+                System.out.println("you have : "+player.getOffensif().getnomAttaque()+"  this case : "+this.nomAttaque);
+            }
+
+        }
+        else{
+            super.interaction(player);
         }
     }
 }

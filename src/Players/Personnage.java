@@ -11,6 +11,7 @@ public abstract class Personnage  { // Abstract classes cannot be instantiated (
     protected int vie_max;
     protected int attaque_max;
     private int playerPosition=1;
+    protected String type;
 
     //Abstract methods cannot have a body
     public abstract  String toString();
@@ -44,6 +45,10 @@ public abstract class Personnage  { // Abstract classes cannot be instantiated (
     }
     public void setOffensif(EquipementOffensif offensif) {
         this.offensif = offensif;
+    }
+
+    public String getType(){
+      return this.type;
     }
 
 

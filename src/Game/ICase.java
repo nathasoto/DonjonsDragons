@@ -1,4 +1,6 @@
 package Game;
+import Players.Guerriers;
+import Players.Magiens;
 import Players.Personnage;
 
 // All methodes are public et abstrac not construtor
@@ -7,7 +9,6 @@ public interface ICase { // interconectar colecciones de methodos abstractos, he
 public String toString();
 
 public  void interaction(Personnage player);
-
 
 
 }

@@ -1,5 +1,7 @@
 package Potions;
 import Game.ICase;
+import Players.Guerriers;
+import Players.Magiens;
 import Players.Personnage;
 
 public abstract class Potion implements ICase {
@@ -22,4 +24,6 @@ public abstract class Potion implements ICase {
         System.out.println("New Vie Level : "+player.getNiveauDeVie());
 
     }
+
+
 }

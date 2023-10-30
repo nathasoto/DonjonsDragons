@@ -11,9 +11,22 @@ public class Massue extends Arme {
 
     @Override
     public void interaction(Personnage player) {
-        System.out.println(nomAttaque);
-        if(player instanceof Guerriers){
-            player.setForceDAttaque(getniveauAttaque() + this.niveauAttaque);
+
+
+        if (player.getOffensif().getTypeOffensive() == "Arme") {
+
+            if (player.getOffensif().getniveauAttaque() < this.niveauAttaque) {
+
+                player.setOffensif(new Massue());
+                System.out.println(toString());
+            }
+            else{
+                System.out.println("you have : "+player.getOffensif().getnomAttaque()+"  this case : "+this.nomAttaque);
+            }
+
+        }
+        else{
+            super.interaction(player);
         }
     }
 }

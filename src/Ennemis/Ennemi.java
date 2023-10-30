@@ -1,6 +1,8 @@
 package Ennemis;
 import Game.Game;
 import Game.ICase;
+import Players.Guerriers;
+import Players.Magiens;
 import Players.Personnage;
 
 public abstract class Ennemi implements ICase {
@@ -29,6 +31,8 @@ public abstract class Ennemi implements ICase {
 
     @Override
     public void interaction(Personnage player) {
-        System.out.println(nameEnnemi);
+        System.out.println(this.getClass());
     }
+
+
 }
