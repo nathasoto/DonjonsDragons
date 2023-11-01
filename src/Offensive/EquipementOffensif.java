@@ -6,22 +6,43 @@ import Players.Magiens;
 import Players.Personnage;
 
 public abstract  class EquipementOffensif  implements ICase {
-    protected String typeOffensive;
     protected int niveauAttaque;
     protected String nomAttaque ;
-
     public String toString(){
         return this.nomAttaque + " : Niveau : "+this.niveauAttaque;
     };
-    public abstract int getniveauAttaque();
-    public abstract String getnomAttaque();
-    public String getTypeOffensive(){
-        return this.typeOffensive;
+    public  int getniveauAttaque(){
+        return this.niveauAttaque;
     };
+    public  String getnomAttaque(){
+        return this.nomAttaque;
+    };
+
+    protected abstract void setNewOffensive(Personnage player);
+
     @Override
     public void interaction(Personnage player) {
 
-     System.out.println("you are " + player.getType()+" you can not take : "+this.toString());
+        Package packageplayerOffesif = player.getOffensif().getClass().getPackage();//player offesive package
+        Package packagecaseOffesif = getClass().getPackage();// case offesive package
+
+        if (packageplayerOffesif  ==  packagecaseOffesif) {
+
+            if (player.getOffensif().getniveauAttaque() < this.niveauAttaque) {
+
+                setNewOffensive(player);
+                System.out.println(player.toString());
+            }
+            else{
+
+                System.out.println("you have : "+player.getOffensif().getnomAttaque()+" et  this case : "+this.nomAttaque);
+            }
+
+        }
+        else{
+            System.out.println("you are " + player.getType()+" you can not take : "+this.toString());
+        }
+
 
     }
 

@@ -1,5 +1,6 @@
 package Players;
 import Defensive.EquipementDefensif;
+import Offensive.Arme.Epee;
 import Offensive.EquipementOffensif;
 
 public abstract class Personnage  { // Abstract classes cannot be instantiated (not constructor)
@@ -50,6 +51,7 @@ public abstract class Personnage  { // Abstract classes cannot be instantiated (
     public String getType(){
       return this.type;
     }
+
 
 
 }

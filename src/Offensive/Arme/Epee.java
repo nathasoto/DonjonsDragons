@@ -1,32 +1,18 @@
 package Offensive.Arme;
 
+import Offensive.EquipementOffensif;
 import Players.Guerriers;
 import Players.Magiens;
 import Players.Personnage;
 
-public class Epee extends Arme {
+public class Epee extends EquipementOffensif{
     public Epee() {
 
         nomAttaque = "Epée";
         niveauAttaque = 5;
     }
-
     @Override
-    public void interaction(Personnage player) {
-
-        if (player.getOffensif().getTypeOffensive() == "Arme") {
-            if (player.getOffensif().getniveauAttaque() < this.niveauAttaque) {
-
-                player.setOffensif(new Epee());
-                System.out.println(toString());
-            }
-            else{
-                System.out.println("you have : "+player.getOffensif().getnomAttaque()+"  this case : "+this.nomAttaque);
-            }
-
-        }
-        else{
-            super.interaction(player);
-        }
+    public void setNewOffensive(Personnage player) {
+        player.setOffensif(new Epee());
     }
 }
