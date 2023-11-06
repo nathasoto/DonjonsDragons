@@ -1,5 +1,9 @@
 package Defensive;
 
+/**
+ * @author nathalie.soto
+ */
+
 public class Bouclier extends EquipementDefensif{
     public Bouclier() {
         niveauDefense = 7;

@@ -1,6 +1,5 @@
 package Ennemis;
 
-import Players.Personnage;
 
 public class Sorcier extends Ennemi{
 
@@ -26,9 +25,7 @@ public class Sorcier extends Ennemi{
     }
 
     @Override
-    public int getVieEnnemi() {
-        return super.getVieEnnemi();
+    public int getLevelVieEnnemi() {
+        return super.getLevelVieEnnemi();
     }
-
-
 }

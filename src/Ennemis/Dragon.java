@@ -1,6 +1,5 @@
 package Ennemis;
 
-import Players.Personnage;
 
 public class Dragon extends Ennemi {
     public Dragon() {
@@ -26,10 +25,7 @@ public class Dragon extends Ennemi {
     }
 
     @Override
-    public int getVieEnnemi() {
-        return super.getVieEnnemi();
+    public int getLevelVieEnnemi() {
+        return super.getLevelVieEnnemi();
     }
-
-
-
 }

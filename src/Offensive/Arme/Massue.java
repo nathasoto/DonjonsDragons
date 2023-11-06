@@ -14,4 +14,9 @@ public class Massue extends EquipementOffensif {
     protected void setNewOffensive(Personnage player) {
         player.setOffensif(new Massue());
     }
+
+    @Override
+    public int getLevelVieEnnemi() {
+        return 0;
+    }
 }

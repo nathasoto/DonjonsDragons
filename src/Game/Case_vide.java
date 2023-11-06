@@ -1,7 +1,5 @@
 package Game;
 
-import Players.Guerriers;
-import Players.Magiens;
 import Players.Personnage;
 
 public class Case_vide implements ICase {
@@ -21,4 +19,8 @@ public class Case_vide implements ICase {
         System.out.println("Tour suivant.....");
     }
 
+    @Override
+    public int getLevelVieEnnemi() {
+        return 0;
+    }
 }

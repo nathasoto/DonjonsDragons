@@ -1,10 +1,7 @@
 package Game;
 
-import Players.Guerriers;
-import Players.Magiens;
-import Players.Personnage;
-
 import java.util.Scanner;
+
 
 public class Menu {
 

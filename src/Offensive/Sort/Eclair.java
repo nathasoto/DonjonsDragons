@@ -15,4 +15,9 @@ public class Eclair extends EquipementOffensif {
     protected void setNewOffensive(Personnage player) {
         player.setOffensif(new Eclair());
     }
+
+    @Override
+    public int getLevelVieEnnemi() {
+        return 0;
+    }
 }

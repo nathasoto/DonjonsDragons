@@ -1,8 +1,6 @@
 package Ennemis;
-import Game.Game;
+
 import Game.ICase;
-import Players.Guerriers;
-import Players.Magiens;
 import Players.Personnage;
 
 public abstract class Ennemi implements ICase {
@@ -24,15 +22,41 @@ public abstract class Ennemi implements ICase {
         return this.getNiveauAttaque();
     }
 
-    public int getVieEnnemi() {
+    @Override
+    public int getLevelVieEnnemi() {
 
-        return this.getVieEnnemi();
+        return this.vieEnnemi;
     }
 
     @Override
-    public void interaction(Personnage player) {
-        System.out.println(this.getClass());
+    public void  interaction(Personnage player) {
+
+        int force = player.getForceDAttaque() + player.getOffensif().getniveauAttaque();
+
+        System.out.println("Your Force is : "+force);
+        System.out.println("Case : "+this.getClass()+ " Life :"+ this.vieEnnemi);
+
+        this.vieEnnemi = this.vieEnnemi - force;
+
+        if(this.vieEnnemi <=0 ){
+
+            System.out.println("you kill Ennemi");
+            System.out.println("Vie Ennemi  : "+ this.vieEnnemi);
+            this.vieEnnemi =0;
+
+
+        }
+        else{
+
+            player.setNiveauDeVie(player.getNiveauDeVie() - this.niveauAttaque) ;
+            System.out.println("Ennemi push you ");
+            System.out.println("your level Life is  :"+player.getNiveauDeVie());
+        }
+
+
     }
+
+
 
 
 }

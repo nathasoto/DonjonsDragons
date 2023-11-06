@@ -1,9 +1,17 @@
 package Players;
 import Defensive.EquipementDefensif;
-import Offensive.Arme.Epee;
 import Offensive.EquipementOffensif;
 
+/**
+ * <h1>Define a Personnage</h1>
+ *
+ * @author nathalie.soto <a href="https://github.com/nathasoto/DonjonsDragons"> GitHub </a>
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 public abstract class Personnage  { // Abstract classes cannot be instantiated (not constructor)
+
     protected String name;
     protected int forceDAttaque;
     protected int niveauDeVie;

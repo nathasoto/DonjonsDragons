@@ -1,6 +1,9 @@
-import Game.Game;
+
 import Game.Menu;
-//import static sun.tools.jconsole.inspector.XDataViewer.dispose;
+
+/**
+ * <h1>The Donjons Dragons program implements a board game</h1>
+ */
 
 public class Main {
     public static void main(String[] args) {

@@ -1,38 +1,40 @@
 package Game;
 
 import Ennemis.*;
-import Offensive.Arme.Epee;
-import Offensive.Arme.Massue;
-import Offensive.EquipementOffensif;
-import Offensive.Sort.Boule_de_feu;
-import Offensive.Sort.Eclair;
-import Players.Guerriers;
-import Players.Magiens;
-import Players.Personnage;
-import Potions.GrandePotion;
-import Potions.Potion;
-import Potions.Potion_Standard;
-
+import Offensive.Arme.*;
+import Offensive.Sort.*;
+import Players.*;
+import Potions.*;
 import java.util.*;
 import java.util.stream.Stream;
 import java.util.List;
 
-import static java.util.Collections.shuffle;
+/**
+ * <h1>Define a Game</h1>
+ *
+ * @author nathalie.soto <a href="https://github.com/nathasoto/DonjonsDragons"> GitHub </a>
+ * @version 1.0.0
+ * @since 1.0.0
+ *
+ *
+ * @see Personnage
+ * @see Offensive.EquipementOffensif
+ * @see Ennemi
+ * @see Potion
+ */
 
 public class Game {
 
     private int die = 0;
     private Personnage player;
     private List<ICase> plateau;
-    ArrayList<Integer> notRepeatRandom;
 
-
-    private Ennemi caseEnnemi;
-    private Potion casePotion;
-    private Case_vide case_vide;
-    private EquipementOffensif caseOffensif;
-
-
+    /**
+     * Define a personnage according to type (Guerrier or Magicien)
+     *
+     * @param name String the personnage's name
+     * @param type String the personnage's type
+     */
     public void setPlayer(String name, String type) {
 
         switch (type) {
@@ -49,11 +51,20 @@ public class Game {
         }
     }
 
+    /**
+     * Throw the dice, use the random method from 1 to 6
+     */
+
     public void throwTheDie() {
 
         this.die = (int) (Math.random() * 6 + 1);
     }
 
+    /**
+     * Throw the dice and the personnage interacts with the game
+     * @throws  "cannot instantiate the board if is not created"
+     *
+     */
     public void jouer_un_tour() {
 
         try {
@@ -61,29 +72,51 @@ public class Game {
             System.out.println("dé : " + this.die);
 
             player.setPlayerPosition(player.getPlayerPosition() + this.die);
-            System.out.println("player position : " + (player.getPlayerPosition()-1));
+            System.out.println("player position : " + (player.getPlayerPosition()));
 
 
-            plateau.get(player.getPlayerPosition()-1).interaction(player);
+            if((plateau.get(player.getPlayerPosition()-1)) instanceof Ennemi ){
+
+
+                plateau.get(player.getPlayerPosition()-1).interaction(player);
+
+                if(plateau.get(player.getPlayerPosition()-1).getLevelVieEnnemi() == 0){
+                    deleteEnnemi(player.getPlayerPosition()-1);
+                }
+
+            }
+            else {
+                plateau.get(player.getPlayerPosition()-1).interaction(player);
+            }
 
 
         } catch (Exception e) {
             System.out.println("------------ 'instance Plateau'--------------------");
         }
 
-
     }
+
+    /**
+     * Modify personnage's name
+     * @param name String the personnage's name
+     */
 
     public void modifierNamePerso(String name) {
 
         player.setName(name);
     }
 
+    /**
+     * Show current Player
+     */
     public void currentPlayer() {
 
         System.out.println(player.toString());
     }
 
+    /**
+     * set board game and use random for that.
+     */
 
     public void instancierPlateau() {
 
@@ -99,7 +132,6 @@ public class Game {
         int howManyBigPotions = 2;
         int howManyCaseVide = 13;
 
-
         List<ICase> dragons = Collections.nCopies(howManydragons, new Dragon());
         List<ICase> Sorciers = Collections.nCopies(howManySorciers, new Sorcier());
         List<ICase> Gobelins = Collections.nCopies(howManyGobelins, new Gobelin());
@@ -114,43 +146,47 @@ public class Game {
 
         plateau  = new ArrayList<ICase>(Stream.of(dragons, Sorciers, Gobelins,Massues,Epees,Eclair,BoulesDeFeu,potionStandars,BigPotions,CaseVide ).flatMap(Collection::stream).toList());//concatenate List
 
-        List <ICase> newp = new ArrayList<ICase>();
-
-
-
-        for (int i=0 ; i < newp.size(); i++) {
-
-            System.out.println(newp.get(i));
-            System.out.println(newp.indexOf(newp.get(i)));
-
-        }
-
-
-        //Collections.shuffle(plateau);//random
+        Collections.shuffle(plateau);//random
 
     }
 
+    /**
+     * show the board game
+     */
+
     public void displayPlateau() {
 
-       /* System.out.println("________________________________");
+       System.out.println("________________________________");
 
         for (int i=0 ; i < plateau.size(); i++) {
+            System.out.println("Case : " + (i+1)); // without brackets concatenate
             System.out.println(plateau.get(i));
-            System.out.println(plateau.indexOf(plateau.get(i)));
 
         }
 
         System.out.println("________________________________");
-        */
 
     }
-    public void OldinstancierPlateau() {
 
-        /*for(int i = 0; i < 64; i++){
+    /**
+     *Delete ennemi who dont have life
+     *
+     * @param position int position de personnage in the board
+     */
+    public void deleteEnnemi(int position){
+       plateau.set(position, new Case_vide());
+       System.out.println("Now this Case =  "+plateau.get(player.getPlayerPosition()-1));
+    }
+
+    /**
+     * @deprecated
+     */
+    /*public void oldInstancierPlateau() {
+
+        for(int i = 0; i < 64; i++){
 
             plateau.add(i, case_vide = new Case_vide());
         }
-
 
         notRepeatRandom = randomNotRepeat();
 
@@ -189,10 +225,15 @@ public class Game {
         for (int i = 46; i < 48; i++) {
 
             plateau.set(notRepeatRandom.get(i), casePotion = new GrandePotion());
-        }*/
+        }
 
-    }
-    public ArrayList randomNotRepeat() {
+    }*/
+
+    /**
+     *
+     * @deprecated
+     */
+   /* public ArrayList randomNotRepeat() {
 
         notRepeatRandom = new ArrayList<Integer>();
 
@@ -206,7 +247,7 @@ public class Game {
             }
         }
         return notRepeatRandom;
-    }
+    }*/
 
 
 }

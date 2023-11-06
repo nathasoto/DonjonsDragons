@@ -1,6 +1,5 @@
 package Ennemis;
 
-import Players.Personnage;
 
 public class Gobelin extends Ennemi{
     public Gobelin() {
@@ -26,9 +25,7 @@ public class Gobelin extends Ennemi{
     }
 
     @Override
-    public int getVieEnnemi() {
-        return super.getVieEnnemi();
+    public int getLevelVieEnnemi() {
+        return super.getLevelVieEnnemi();
     }
-
-
 }
