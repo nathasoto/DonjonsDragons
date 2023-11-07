@@ -15,5 +15,4 @@ public  void interaction(Personnage player);
 
 public int getLevelVieEnnemi();
 
-
 }

@@ -77,13 +77,7 @@ public class Game {
 
             if((plateau.get(player.getPlayerPosition()-1)) instanceof Ennemi ){
 
-
-                plateau.get(player.getPlayerPosition()-1).interaction(player);
-
-                if(plateau.get(player.getPlayerPosition()-1).getLevelVieEnnemi() == 0){
-                    deleteEnnemi(player.getPlayerPosition()-1);
-                }
-
+                combat();
             }
             else {
                 plateau.get(player.getPlayerPosition()-1).interaction(player);
@@ -92,6 +86,19 @@ public class Game {
 
         } catch (Exception e) {
             System.out.println("------------ 'instance Plateau'--------------------");
+        }
+
+    }
+    public void combat(){
+
+        Scanner clavier = new Scanner(System.in);
+        System.out.print("Do you want Fight? : ");
+        boolean choixModifyName = clavier.nextBoolean();
+
+        plateau.get(player.getPlayerPosition()-1).interaction(player);
+
+        if(plateau.get(player.getPlayerPosition()-1).getLevelVieEnnemi() == 0){
+            deleteEnnemi(player.getPlayerPosition()-1);
         }
 
     }
@@ -143,7 +150,6 @@ public class Game {
         List<ICase> BigPotions = Collections.nCopies(howManyBigPotions, new GrandePotion());
         List<ICase> CaseVide = Collections.nCopies(howManyCaseVide, new Case_vide());
 
-
         plateau  = new ArrayList<ICase>(Stream.of(dragons, Sorciers, Gobelins,Massues,Epees,Eclair,BoulesDeFeu,potionStandars,BigPotions,CaseVide ).flatMap(Collection::stream).toList());//concatenate List
 
         Collections.shuffle(plateau);//random
@@ -153,7 +159,6 @@ public class Game {
     /**
      * show the board game
      */
-
     public void displayPlateau() {
 
        System.out.println("________________________________");
