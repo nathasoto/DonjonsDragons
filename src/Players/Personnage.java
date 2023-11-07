@@ -1,5 +1,7 @@
 package Players;
 import Defensive.EquipementDefensif;
+import Ennemis.Ennemi;
+import Game.ICombat;
 import Offensive.EquipementOffensif;
 
 /**
@@ -10,7 +12,7 @@ import Offensive.EquipementOffensif;
  * @since 1.0.0
  */
 
-public abstract class Personnage  { // Abstract classes cannot be instantiated (not constructor)
+public abstract class Personnage implements ICombat { // Abstract classes cannot be instantiated (not constructor)
 
     protected String name;
     protected int forceDAttaque;
@@ -24,23 +26,17 @@ public abstract class Personnage  { // Abstract classes cannot be instantiated (
 
     //Abstract methods cannot have a body
     public abstract  String toString();
+
     public  void setName(String name){
         this.name = name;
     };
-    public  String getName() {
-        return this.name;
-    };
-    public void setForceDAttaque(int forceDAttaque) {
-        this.forceDAttaque = forceDAttaque;
-    }
-    public int getForceDAttaque() {
-        return this.forceDAttaque;
-    }
     public int getNiveauDeVie() {
         return niveauDeVie;
     }
     public void setNiveauDeVie(int niveauDeVie) {
         this.niveauDeVie = niveauDeVie;
+    }
+    public int getForceDAttaque(){ return this.forceDAttaque;
     }
     public int getPlayerPosition() {
         return playerPosition;
@@ -48,18 +44,17 @@ public abstract class Personnage  { // Abstract classes cannot be instantiated (
     public void setPlayerPosition(int playerPosition) {
         this.playerPosition = playerPosition;
     }
-
     public EquipementOffensif getOffensif() {
         return offensif;
     }
     public void setOffensif(EquipementOffensif offensif) {
         this.offensif = offensif;
     }
-
     public String getType(){
       return this.type;
     }
-
-
+    @Override
+    public void combat() {
+    }
 
 }

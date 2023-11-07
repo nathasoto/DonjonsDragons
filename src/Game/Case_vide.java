@@ -19,8 +19,5 @@ public class Case_vide implements ICase {
         System.out.println("Tour suivant.....");
     }
 
-    @Override
-    public int getLevelVieEnnemi() {
-        return 0;
-    }
+
 }

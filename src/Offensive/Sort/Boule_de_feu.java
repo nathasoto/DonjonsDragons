@@ -14,8 +14,5 @@ public class Boule_de_feu extends EquipementOffensif {
         player.setOffensif(new Boule_de_feu());
     }
 
-    @Override
-    public int getLevelVieEnnemi() {
-        return 0;
-    }
+
 }

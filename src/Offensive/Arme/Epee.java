@@ -16,8 +16,5 @@ public class Epee extends EquipementOffensif{
         player.setOffensif(new Epee());
     }
 
-    @Override
-    public int getLevelVieEnnemi() {
-        return 0;
-    }
+
 }

@@ -14,8 +14,5 @@ public  class GrandePotion extends Potion{
         return super.toString();
     }
 
-    @Override
-    public int getLevelVieEnnemi() {
-        return 0;
-    }
+
 }

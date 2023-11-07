@@ -16,8 +16,5 @@ public  class Potion_Standard extends Potion {
         return super.toString();
     }
 
-    @Override
-    public int getLevelVieEnnemi() {
-        return 0;
-    }
+
 }

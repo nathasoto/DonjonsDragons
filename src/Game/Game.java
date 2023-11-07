@@ -74,31 +74,12 @@ public class Game {
             player.setPlayerPosition(player.getPlayerPosition() + this.die);
             System.out.println("player position : " + (player.getPlayerPosition()));
 
+            plateau.get(player.getPlayerPosition()-1).interaction(player);
 
-            if((plateau.get(player.getPlayerPosition()-1)) instanceof Ennemi ){
-
-                combat();
-            }
-            else {
-                plateau.get(player.getPlayerPosition()-1).interaction(player);
-            }
 
 
         } catch (Exception e) {
             System.out.println("------------ 'instance Plateau'--------------------");
-        }
-
-    }
-    public void combat(){
-
-        Scanner clavier = new Scanner(System.in);
-        System.out.print("Do you want Fight? : ");
-        boolean choixModifyName = clavier.nextBoolean();
-
-        plateau.get(player.getPlayerPosition()-1).interaction(player);
-
-        if(plateau.get(player.getPlayerPosition()-1).getLevelVieEnnemi() == 0){
-            deleteEnnemi(player.getPlayerPosition()-1);
         }
 
     }
@@ -179,6 +160,7 @@ public class Game {
      * @param position int position de personnage in the board
      */
     public void deleteEnnemi(int position){
+
        plateau.set(position, new Case_vide());
        System.out.println("Now this Case =  "+plateau.get(player.getPlayerPosition()-1));
     }
