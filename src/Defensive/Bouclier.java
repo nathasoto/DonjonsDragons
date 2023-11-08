@@ -1,22 +1,10 @@
 package Defensive;
 
-/**
- * @author nathalie.soto
- */
-
 public class Bouclier extends EquipementDefensif{
     public Bouclier() {
-        niveauDefense = 7;
-        nomDefense = "Bouclier_Defensif";
+
+        super("Bouclier_Defensif",7);
+
     }
 
-    @Override
-    public int getniveauDefense() {
-        return this.niveauDefense;
-    }
-
-    @Override
-    public String getnomDefense() {
-        return this.nomDefense;
-    }
 }

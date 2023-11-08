@@ -6,10 +6,20 @@ import Players.Personnage;
 
 public abstract class Ennemi implements ICombat, ICase {
 
-    protected String nameEnnemi;
-    protected int niveauAttaque;
-    protected int vieEnnemi;
+    private String nameEnnemi;
+    private int niveauAttaque;
+    private int vieEnnemi;
 
+    protected Ennemi(String nameEnnemi, int niveauAttaque, int vieEnnemi) {
+
+        this.nameEnnemi = nameEnnemi;
+        this.niveauAttaque = niveauAttaque;
+        this.vieEnnemi = vieEnnemi;
+    }
+
+    public int getVieEnnemi(){
+        return this.vieEnnemi;
+    }
     @Override
     public void interaction(Personnage player) {
 
@@ -25,7 +35,6 @@ public abstract class Ennemi implements ICombat, ICase {
             System.out.println("you kill Ennemi");
             System.out.println("Vie Ennemi  : "+ this.vieEnnemi);
             this.vieEnnemi =0;
-
 
 
         }

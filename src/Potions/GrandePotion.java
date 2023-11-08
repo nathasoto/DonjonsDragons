@@ -2,12 +2,9 @@ package Potions;
 
 public  class GrandePotion extends Potion{
     public GrandePotion() {
-        PotionName = "Grande potion de vie";
-        pointdeVie = 5;
-    }
-    @Override
-    public int getPoindevie() {
-        return this.pointdeVie;
+
+        super("Grande potion de vie",5);
+
     }
     @Override
     public String toString() {

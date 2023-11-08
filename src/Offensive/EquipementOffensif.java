@@ -8,6 +8,13 @@ import Players.Personnage;
 public abstract  class EquipementOffensif  implements ICase {
     protected int niveauAttaque;
     protected String nomAttaque ;
+
+    public EquipementOffensif(String nomAttaque, int niveauAttaque) {
+
+        this.nomAttaque = nomAttaque;
+        this.niveauAttaque = niveauAttaque;
+    }
+
     public String toString(){
         return this.nomAttaque + " : Niveau : "+this.niveauAttaque;
     };
@@ -18,7 +25,7 @@ public abstract  class EquipementOffensif  implements ICase {
         return this.nomAttaque;
     };
 
-    protected abstract void setNewOffensive(Personnage player);
+
 
     @Override
     public void interaction(Personnage player) {
@@ -30,7 +37,7 @@ public abstract  class EquipementOffensif  implements ICase {
 
             if (player.getOffensif().getniveauAttaque() < this.niveauAttaque) {
 
-                setNewOffensive(player);
+                player.setOffensif(this);
                 System.out.println(player.toString());
             }
             else{

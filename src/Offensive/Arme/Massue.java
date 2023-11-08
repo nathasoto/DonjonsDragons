@@ -6,14 +6,9 @@ import Players.Personnage;
 
 public class Massue extends EquipementOffensif {
     public Massue() {
-        nomAttaque = "Massue";
-        niveauAttaque = 3;
-    }
 
-    @Override
-    protected void setNewOffensive(Personnage player) {
-        player.setOffensif(new Massue());
-    }
+        super("Massue",3);
 
+    }
 
 }

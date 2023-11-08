@@ -7,14 +7,7 @@ import Players.Personnage;
 
 public class Eclair extends EquipementOffensif {
     public Eclair() {
-        nomAttaque = "Eclair";
-        niveauAttaque= 2;
+        super("Eclair",2);
     }
-
-    @Override
-    protected void setNewOffensive(Personnage player) {
-        player.setOffensif(new Eclair());
-    }
-
 
 }

@@ -2,17 +2,8 @@ package Defensive;
 public class Philtre extends EquipementDefensif{
     public Philtre() {
 
-        niveauDefense = 5;
-        nomDefense = "Philtre_Defensif";
+        super("Philtre_Defensif",5);
+
     }
 
-    @Override
-    public int getniveauDefense() {
-        return this.niveauDefense;
-    }
-
-    @Override
-    public String getnomDefense() {
-        return this.nomDefense;
-    }
 }

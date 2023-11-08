@@ -9,10 +9,9 @@ import Players.Personnage;
  */
 public interface ICase { // interconectar colecciones de methodos abstractos, herencia multiple
 
-public String toString();
+    public String toString();
 
-public  void interaction(Personnage player);
-
+    public void interaction(Personnage player);
 
 
 }

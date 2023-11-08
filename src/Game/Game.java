@@ -1,5 +1,4 @@
 package Game;
-
 import Ennemis.*;
 import Offensive.Arme.*;
 import Offensive.Sort.*;
@@ -10,17 +9,16 @@ import java.util.stream.Stream;
 import java.util.List;
 
 /**
- * <h1>Define a Game</h1>
+ * <h1>this class control Game's managment </h1>
+ * this class allow player'creation and player board interaction
  *
  * @author nathalie.soto <a href="https://github.com/nathasoto/DonjonsDragons"> GitHub </a>
  * @version 1.0.0
- * @since 1.0.0
- *
- *
  * @see Personnage
  * @see Offensive.EquipementOffensif
  * @see Ennemi
  * @see Potion
+ * @since 1.0.0
  */
 
 public class Game {
@@ -44,7 +42,7 @@ public class Game {
                 System.out.println(player.toString());
                 break;
             case "magicien":
-                player = new Magiens(name);
+                player = new Magiens();//just for test
                 System.out.println(player.toString());
                 break;
 
@@ -62,30 +60,49 @@ public class Game {
 
     /**
      * Throw the dice and the personnage interacts with the game
-     * @throws  "cannot instantiate the board if is not created"
      *
+     * @throws "cannot instantiate the board if is not created"
      */
     public void jouer_un_tour() {
 
-        try {
-            throwTheDie();
-            System.out.println("dé : " + this.die);
+        throwTheDie();
+        System.out.println("dé : " + this.die);
 
-            player.setPlayerPosition(player.getPlayerPosition() + this.die);
-            System.out.println("player position : " + (player.getPlayerPosition()));
+       try {
 
-            plateau.get(player.getPlayerPosition()-1).interaction(player);
+           player.setPlayerPosition(player.getPlayerPosition() + this.die);
+           System.out.println("player position : " + (player.getPlayerPosition()));
 
+           boardNotImplemented();// check if board is null
+           boardOutOfBoundsException();
+           plateau.get(player.getPlayerPosition() - 1).interaction(player);
 
+       }
+       catch (ExceptionBoardNotImplemented e){
+           System.out.println(e.getMessage());
+       }
+       catch (ExceptionOutOfBounds e) {
+           System.out.println(e.getMessage());
+       }
 
-        } catch (Exception e) {
-            System.out.println("------------ 'instance Plateau'--------------------");
+    }
+
+    public void boardNotImplemented() throws ExceptionBoardNotImplemented {
+
+        if (plateau == null) {
+            throw new ExceptionBoardNotImplemented();
         }
+    }
 
+    public void boardOutOfBoundsException() throws ExceptionOutOfBounds{
+        if(player.getPlayerPosition() > 64){
+            throw new ExceptionOutOfBounds();
+        }
     }
 
     /**
      * Modify personnage's name
+     *
      * @param name String the personnage's name
      */
 
@@ -126,12 +143,12 @@ public class Game {
         List<ICase> Massues = Collections.nCopies(howManyMassues, new Massue());
         List<ICase> Epees = Collections.nCopies(howManyEpees, new Epee());
         List<ICase> Eclair = Collections.nCopies(howManyEclair, new Eclair());
-        List<ICase> BoulesDeFeu= Collections.nCopies(howManyBoulesDeFeu, new Boule_de_feu());
+        List<ICase> BoulesDeFeu = Collections.nCopies(howManyBoulesDeFeu, new Boule_de_feu());
         List<ICase> potionStandars = Collections.nCopies(howManyPotionStandars, new Potion_Standard());
         List<ICase> BigPotions = Collections.nCopies(howManyBigPotions, new GrandePotion());
         List<ICase> CaseVide = Collections.nCopies(howManyCaseVide, new Case_vide());
 
-        plateau  = new ArrayList<ICase>(Stream.of(dragons, Sorciers, Gobelins,Massues,Epees,Eclair,BoulesDeFeu,potionStandars,BigPotions,CaseVide ).flatMap(Collection::stream).toList());//concatenate List
+        plateau = new ArrayList<ICase>(Stream.of(dragons, Sorciers, Gobelins, Massues, Epees, Eclair, BoulesDeFeu, potionStandars, BigPotions, CaseVide).flatMap(Collection::stream).toList());//concatenate List
 
         Collections.shuffle(plateau);//random
 
@@ -142,10 +159,10 @@ public class Game {
      */
     public void displayPlateau() {
 
-       System.out.println("________________________________");
+        System.out.println("________________________________");
 
-        for (int i=0 ; i < plateau.size(); i++) {
-            System.out.println("Case : " + (i+1)); // without brackets concatenate
+        for (int i = 0; i < plateau.size(); i++) {
+            System.out.println("Case : " + (i + 1)); // without brackets concatenate
             System.out.println(plateau.get(i));
 
         }
@@ -155,14 +172,14 @@ public class Game {
     }
 
     /**
-     *Delete ennemi who dont have life
+     * Delete ennemi who dont have life
      *
      * @param position int position de personnage in the board
      */
-    public void deleteEnnemi(int position){
+    public void deleteEnnemi(int position) {
 
-       plateau.set(position, new Case_vide());
-       System.out.println("Now this Case =  "+plateau.get(player.getPlayerPosition()-1));
+        plateau.set(position, new Case_vide());
+        System.out.println("Now this Case =  " + plateau.get(player.getPlayerPosition() - 1));
     }
 
     /**
