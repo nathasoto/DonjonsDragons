@@ -63,12 +63,12 @@ public class Game {
      *
      * @throws "cannot instantiate the board if is not created"
      */
-    public void jouer_un_tour() {
+    public void jouer_un_tour() throws ExceptionBoardNotImplemented, ExceptionOutOfBounds {
 
         throwTheDie();
         System.out.println("dé : " + this.die);
 
-       try {
+//       try {
 
            player.setPlayerPosition(player.getPlayerPosition() + this.die);
            System.out.println("player position : " + (player.getPlayerPosition()));
@@ -76,14 +76,14 @@ public class Game {
            boardNotImplemented();// check if board is null
            boardOutOfBoundsException();
            plateau.get(player.getPlayerPosition() - 1).interaction(player);
-
-       }
-       catch (ExceptionBoardNotImplemented e){
-           System.out.println(e.getMessage());
-       }
-       catch (ExceptionOutOfBounds e) {
-           System.out.println(e.getMessage());
-       }
+//
+//       }
+//       catch (ExceptionBoardNotImplemented e){
+//           System.out.println(e.getMessage());
+//       }
+//       catch (ExceptionOutOfBounds e) {
+//           System.out.println(e.getMessage());
+//       }
 
     }
 
@@ -95,7 +95,7 @@ public class Game {
     }
 
     public void boardOutOfBoundsException() throws ExceptionOutOfBounds{
-        if(player.getPlayerPosition() > 64){
+        if(player.getPlayerPosition() > plateau.size()){
             throw new ExceptionOutOfBounds();
         }
     }

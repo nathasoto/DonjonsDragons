@@ -6,10 +6,10 @@ import Players.Magiens;
 import Players.Personnage;
 
 public abstract  class EquipementOffensif  implements ICase {
-    protected int niveauAttaque;
-    protected String nomAttaque ;
+   private int niveauAttaque;
+    private String nomAttaque ;
 
-    public EquipementOffensif(String nomAttaque, int niveauAttaque) {
+    protected EquipementOffensif(String nomAttaque, int niveauAttaque) {
 
         this.nomAttaque = nomAttaque;
         this.niveauAttaque = niveauAttaque;
