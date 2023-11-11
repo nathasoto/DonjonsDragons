@@ -17,7 +17,7 @@ import java.util.*;
 import java.util.stream.Stream;
 import java.util.List;
 
-import static java.util.Collections.shuffle;
+import static java.util.Collections.*;
 
 public class Game {
 
@@ -114,9 +114,12 @@ public class Game {
 
         plateau  = new ArrayList<ICase>(Stream.of(dragons, Sorciers, Gobelins,Massues,Epees,Eclair,BoulesDeFeu,potionStandars,BigPotions,CaseVide ).flatMap(Collection::stream).toList());//concatenate List
 
-        List <ICase> newp = new ArrayList<ICase>();
+        ArrayList <ICase> newp = new ArrayList<ICase>();
 
-
+       for(ICase d : dragons) {
+           System.out.println(d);
+           System.out.println(newp.indexOf(d));
+       }
 
         for (int i=0 ; i < newp.size(); i++) {
 
@@ -124,6 +127,7 @@ public class Game {
             System.out.println(newp.indexOf(newp.get(i)));
 
         }
+
 
 
         //Collections.shuffle(plateau);//random
