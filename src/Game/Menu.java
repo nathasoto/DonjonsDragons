@@ -1,16 +1,16 @@
 package Game;
 
-import Players.Guerriers;
-import Players.Magiens;
-import Players.Personnage;
+import Exceptions.ExceptionBoardNotImplemented;
+import Exceptions.ExceptionOutOfBounds;
 
 import java.util.Scanner;
+
 
 public class Menu {
 
     private boolean arret = false;
-    Scanner clavier = new Scanner(System.in);
-    Game newGame = new Game();
+    private Scanner clavier = new Scanner(System.in);
+    private Game newGame = new Game();
 
     public void afficherMenuAccueil() {
 
@@ -35,7 +35,7 @@ public class Menu {
 
                 case 3:
                     System.out.println("-----------------------------");
-                    instancierPlateau();
+                   // instancierPlateau();
                     System.out.println("-----------------------------");
                     break;
 
@@ -125,15 +125,22 @@ public class Menu {
     public void menuStartGame() {
         System.out.println("---START---");
         System.out.println("-----------------------------");
-        newGame.jouer_un_tour();
+
+        try {
+            newGame.jouer_un_tour();
+        } catch (ExceptionBoardNotImplemented e) {
+            System.out.println(e.getMessage());
+        } catch (ExceptionOutOfBounds e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public void instancierPlateau() {
-
-        newGame.instancierPlateau();
-        newGame.displayPlateau();
-
-    }
+//    public void instancierPlateau() {
+//
+//        newGame.instancierPlateau();
+//        newGame.displayPlateau();
+//
+//    }
 
 
 }

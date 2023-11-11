@@ -2,10 +2,21 @@ package Defensive;
 
  public abstract class EquipementDefensif {
 
-    protected int niveauDefense;
-    protected String nomDefense ;
+    private String nomDefense ;
+    private int niveauDefense;
 
-    public abstract  int getniveauDefense();
-    public abstract String getnomDefense();
+     protected EquipementDefensif(String nomDefense,int niveauDefense) {
+
+         this.nomDefense = nomDefense;
+         this.niveauDefense = niveauDefense;
+     }
+
+     public int getniveauDefense() {
+         return this.niveauDefense;
+     }
+
+     public String getnomDefense() {
+         return this.nomDefense;
+     }
 
 }

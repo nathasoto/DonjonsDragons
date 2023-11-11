@@ -1,13 +1,18 @@
 package Offensive;
 
-import Game.ICase;
-import Players.Guerriers;
-import Players.Magiens;
+import Game.ICaseSurprise;
 import Players.Personnage;
 
-public abstract  class EquipementOffensif  implements ICase {
-    protected int niveauAttaque;
-    protected String nomAttaque ;
+public abstract  class EquipementOffensif  implements ICaseSurprise {
+   private int niveauAttaque;
+    private String nomAttaque ;
+
+    protected EquipementOffensif(String nomAttaque, int niveauAttaque) {
+
+        this.nomAttaque = nomAttaque;
+        this.niveauAttaque = niveauAttaque;
+    }
+
     public String toString(){
         return this.nomAttaque + " : Niveau : "+this.niveauAttaque;
     };
@@ -18,7 +23,7 @@ public abstract  class EquipementOffensif  implements ICase {
         return this.nomAttaque;
     };
 
-    protected abstract void setNewOffensive(Personnage player);
+
 
     @Override
     public void interaction(Personnage player) {
@@ -30,7 +35,7 @@ public abstract  class EquipementOffensif  implements ICase {
 
             if (player.getOffensif().getniveauAttaque() < this.niveauAttaque) {
 
-                setNewOffensive(player);
+                player.setOffensif(this);
                 System.out.println(player.toString());
             }
             else{

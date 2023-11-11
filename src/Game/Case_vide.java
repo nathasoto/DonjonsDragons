@@ -1,10 +1,8 @@
 package Game;
 
-import Players.Guerriers;
-import Players.Magiens;
 import Players.Personnage;
 
-public class Case_vide implements ICase {
+public class Case_vide implements ICases {
 
     private String case_vide;
     public Case_vide() {
@@ -20,5 +18,6 @@ public class Case_vide implements ICase {
     public void interaction(Personnage player) {
         System.out.println("Tour suivant.....");
     }
+
 
 }

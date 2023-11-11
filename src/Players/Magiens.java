@@ -1,36 +1,20 @@
 package Players;
 
+import Defensive.Bouclier;
 import Defensive.Philtre;
+import Offensive.Arme.Epee;
+import Offensive.Arme.Massue;
 import Offensive.Sort.*;
-
 
 public class  Magiens extends Personnage {
 
     public Magiens(String name) {
 
-        this.name = name;
-        this.type= "Magicien";
-        this.forceDAttaque = 15 ;
-        this.niveauDeVie = 6 ;
-        this.offensif = new Eclair();
-        this.defensif = new Philtre();
+        super(name,10,10, new Massue(),new Bouclier(),10,5,"Magicien");
 
     }
-
-    @Override
-    public String toString() {
-
-        return  " ---Magicien---" +'\n'+
-                " name= " + name +'\n'+
-                " niveauDeVie= " + niveauDeVie +'\n'+
-                " forceDAttaque= " + forceDAttaque+'\n'+
-                " Offensif= " + offensif.getnomAttaque() + '\n' +
-                " OffensifNiveau= " + offensif.getniveauAttaque() + '\n' +
-                " Defensif= " + defensif.getnomDefense() + '\n' +
-                " DefensifNiveau= " + defensif.getniveauDefense()
-
-                ;
+    public Magiens(){
+        this("maximo"); //call the first contructorjust for example
     }
-
 
 }

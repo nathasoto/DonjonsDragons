@@ -1,15 +1,17 @@
 package Potions;
-import Game.ICase;
-import Players.Guerriers;
-import Players.Magiens;
+import Game.ICaseSurprise;
 import Players.Personnage;
 
-public abstract class Potion implements ICase {
+public abstract class Potion implements ICaseSurprise {
 
-    protected String PotionName;
+    protected String potionName;
     protected int pointdeVie;
 
-    public abstract int getPoindevie();
+    public Potion(String potionName, int pointdeVie) {
+
+        this.potionName = potionName;
+        this.pointdeVie = pointdeVie;
+    }
 
     @Override
     public  String toString() {
@@ -20,7 +22,7 @@ public abstract class Potion implements ICase {
     public void interaction(Personnage player) {
 
         player.setNiveauDeVie(player.getNiveauDeVie() +this.pointdeVie);
-        System.out.println(this.PotionName);
+        System.out.println(this.potionName);
         System.out.println("New Vie Level : "+player.getNiveauDeVie());
 
     }
