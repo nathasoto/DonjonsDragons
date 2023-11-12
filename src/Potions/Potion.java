@@ -1,8 +1,9 @@
 package Potions;
-import Game.ICaseSurprise;
+import Ennemis.Ennemi;
+import Game.ICases;
 import Players.Personnage;
 
-public abstract class Potion implements ICaseSurprise {
+public abstract class Potion implements ICases {
 
     protected String potionName;
     protected int pointdeVie;
@@ -11,6 +12,14 @@ public abstract class Potion implements ICaseSurprise {
 
         this.potionName = potionName;
         this.pointdeVie = pointdeVie;
+    }
+    public Potion getPotion(){
+        return this;
+    }
+
+    @Override
+    public Ennemi getCaseEnnemi() {
+        return null;
     }
 
     @Override

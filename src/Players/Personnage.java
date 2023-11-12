@@ -53,13 +53,13 @@ public abstract class Personnage implements ICombat { // Abstract classes cannot
     public String toString() {
 
         return this.type + '\n' +
-                " name= " + name + '\n' +
-                " niveauDeVie= " + niveauDeVie + '\n' +
-                " forceDAttaque= " + forceDAttaque + '\n' +
-                " Offensif= " + offensif.getnomAttaque() + '\n' +
-                " OffensifNiveau= " + offensif.getniveauAttaque() + '\n' +
-                " Defensif= " + defensif.getnomDefense() + '\n' +
-                " DefensifNiveau= " + defensif.getniveauDefense()
+                " Name              : " + name + '\n' +
+                " Life's level      : " + niveauDeVie + '\n' +
+                " Attack            : " + forceDAttaque + '\n' +
+                " Offensive         : " + offensif.getnomAttaque() + '\n' +
+                " Offensive's level : " + offensif.getniveauAttaque() + '\n' +
+                " Defensive         : " + defensif.getnomDefense() + '\n' +
+                " Defensive's level : " + defensif.getniveauDefense()
                 ;
     }
 

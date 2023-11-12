@@ -1,5 +1,6 @@
 package Game;
 
+import Ennemis.Ennemi;
 import Players.Personnage;
 
 // All methodes are public et abstrac not construtor
@@ -9,6 +10,8 @@ public interface ICases { // interconectar colecciones de methodos abstractos, h
     public String toString();
 
     public void interaction(Personnage player);
+
+    public Ennemi getCaseEnnemi();
 
 
 }

@@ -1,10 +1,10 @@
 package Ennemis;
 
-import Game.ICaseSurprise;
+import Game.ICases;
 import Game.ICombat;
 import Players.Personnage;
 
-public abstract class Ennemi implements ICombat, ICaseSurprise {
+public abstract class Ennemi implements ICombat, ICases {
 
     private String nameEnnemi;
     private int niveauAttaque;
@@ -20,6 +20,15 @@ public abstract class Ennemi implements ICombat, ICaseSurprise {
     public int getVieEnnemi(){
         return this.vieEnnemi;
     }
+    public Ennemi getEnnemi(){
+        return this;
+    }
+
+    @Override
+    public Ennemi getCaseEnnemi() {
+        return this;
+    }
+
     @Override
     public void interaction(Personnage player) {
 
@@ -46,6 +55,7 @@ public abstract class Ennemi implements ICombat, ICaseSurprise {
         }
 
     }
+
     @Override
     public void combat() {
 

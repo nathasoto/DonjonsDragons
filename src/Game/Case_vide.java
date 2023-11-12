@@ -1,5 +1,6 @@
 package Game;
 
+import Ennemis.Ennemi;
 import Players.Personnage;
 
 public class Case_vide implements ICases {
@@ -19,5 +20,8 @@ public class Case_vide implements ICases {
         System.out.println("Tour suivant.....");
     }
 
-
+    @Override
+    public Ennemi getCaseEnnemi() {
+        return null;
+    }
 }

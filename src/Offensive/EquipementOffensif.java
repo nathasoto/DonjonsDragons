@@ -1,9 +1,10 @@
 package Offensive;
 
-import Game.ICaseSurprise;
+import Ennemis.Ennemi;
+import Game.ICases;
 import Players.Personnage;
 
-public abstract  class EquipementOffensif  implements ICaseSurprise {
+public abstract  class EquipementOffensif  implements ICases {
    private int niveauAttaque;
     private String nomAttaque ;
 
@@ -23,7 +24,14 @@ public abstract  class EquipementOffensif  implements ICaseSurprise {
         return this.nomAttaque;
     };
 
+    public EquipementOffensif getOffesive(){
+        return this;
+    }
 
+    @Override
+    public Ennemi getCaseEnnemi() {
+        return null;
+    }
 
     @Override
     public void interaction(Personnage player) {
